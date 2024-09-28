@@ -1,0 +1,424 @@
+@media screen and (min-width:1602px)    {
+    /* .bannerImage                        { min-height: 700px;} */
+    /* .innerPageBanner .bannerImage       { min-height: 500px; } */
+    .about-tabs-list                    { left: -550px;}
+    .about-tabs-list ul                 { width: 200px;}
+    .about-tabs-list ul li              { height: 42px; line-height: 42px; font-size: 16px; }
+}
+@media screen and (min-width:1369px) and (max-width: 1601px){
+    .bannerImage                        { min-height: 500px;}
+    /* .doctorsBanner .bannerImage         { min-height: 300px; } */
+    .innerPageBanner .bannerImage         { min-height: 330px; }
+    .about-tabs-list ul                 { width: 200px;}
+    .about-tabs-list                    { left: -550px;}
+    
+}
+@media screen and (max-width:1920px)    {
+    .onloadSection                      { width: 660px;} 
+    .onloadBottom                       { padding: 25px; width: 100%;}
+    .onloadInfo ul li a img             { width: 50px;}
+    .onloadInfo ul li                   { width: calc(33.33% - 18px);}
+    .onloadInfo                         { padding-bottom: 30px;}
+    .onloadAddress ul                   { padding: 10px 0;}
+    .onloadInfo ul li a span            { font-size: 14px;}
+    .onloadInfo ul li a                 { min-height: 140px;}
+    .pagecancerChanges .cancerItem .cancertypeContent { display: block;}
+    .aboutcancers.pagecancerChanges .activeserviceItems { display: block;}
+
+}
+@media screen and (min-width:1281px) and (max-width: 1368px)    { 
+    .innerPageBanner .bannerImage         { min-height: 280px; }
+    .about-tabs-list                    { left: -540px;}
+    .onloadSection                      { width: 660px;} 
+    .bannerImage                        { min-height: 420px;} 
+
+
+}
+@media (max-width: 1300px)              { 
+    .about-tabs-list                    { display: none;}
+}
+@media (max-width: 1280px)              { 
+    .ourTeamSlider.owl-carousel, .knowKaizenCaouusel,.newsSectionCaouusel,.hospitalBlog, .gallerySliderMain{ width: calc(100% - 120px) !important; margin: 0 auto;}
+    .bannerImage                        { min-height: 330px;} 
+    /* .innerPageBanner .bannerImage       { min-height: 440px;} */
+    .innerPageBanner .bannerImage         { min-height: 230px; }
+}
+@media (max-width: 1280px)              { 
+
+    .mobileDrop                         { cursor: pointer; display: block;height: 35px;position: absolute;left: 0;top: 0;z-index: 10;width: 100%;display: flex;flex-direction: row;place-content: center;align-items: center;background-color: var(--default-text-color);}
+    .mobileDrop a                       { cursor: pointer; height: 14px;  width: 14px; border: solid 2px var(--secondary-bg-color); border-left: none;  border-bottom: none; transform: rotate(-45deg);  margin-top: 6px; }
+    .about-tabs-list ul                 { border-radius: 0 !important; padding-top: 40px;width: 100%;} 
+    .openSmoothScroll.about-tabs-list   { top: auto !important; bottom: 0; }
+    .openSmoothScroll .mobileDrop a     { transform: rotate(135deg); margin-top: -8px;} 
+    .doctorInfo ul li a                 { display: block;}
+    .extrainnerSpace                    { display: block; min-height: 35px;}
+    .knowCaouuselItem .heading br       { display: none;}     
+    /* .innerPageBanner .bannerImage       { min-height: 410px;} */
+}
+@media (max-width: 1023px)              {
+    body                                { transition: all ease-in-out .3s;position: relative;left: 0;padding-top: 60px;}
+    .nav-icon                           { display: block;}
+    .open-menu                          { width: 100%; }
+    .open-menu header                   { z-index: 10;}
+    .overlay                            { display: block; position: fixed;width: 100%;height: 100%;z-index: 7;background-color: rgba(0, 0, 0, .3);top: 0;left: -100% }
+    .open-menu .overlay                 { left: 0 }
+    nav                                 { transition: all ease-in-out .3s;left: -300px;top: 0;position: fixed;width: 280px;height: 100vh;background-color: black;z-index: 10;padding-top: 60px; overflow: auto; }
+    .open-menu  nav                     { left: 0;}
+    nav ul                              { border-top: solid 1px var(--primary-text-color);}
+    nav ul li                           { display: block;width: 100%;margin: 0;border-bottom: solid 1px var(--secondary-bg-color);}
+    nav ul li a                         { padding: 7px 10px;color: var(--secondary-text-color);display: block;}
+    nav ul li a:hover,nav ul li a.active{ background-color: #ee63a3; color: var(--secondary-text-color);}
+    .open-menu nav:after                { left: 0;}
+    nav:after                           { transition: all ease-in-out .3s;content: '';position: fixed;left: -100%;top: 0;width: 280px;height: 60px;background-color: black;}
+    #logo                               { position: relative; z-index: 11;}
+    #logo a img                         { height: 40px;}
+    .ourServiceSlider                   { width: 100% !important;}
+    .ourService h1                      { padding-left: 0;}    
+    .outer                              { width: 600px;}
+    .bannerImage                        { min-height: 250px;} 
+    .ourService                         { margin-top: -75px;} 
+    .cancerTypes ul li                  { width: calc(33% - 15px);}
+    .innerPageBanner .bannerImage       { min-height: 180px; }
+    .bannerForm .innerForm              { padding: 0 0 10px 0; width: 250px;}
+    .bannerForm .innerForm ul           { padding: 4px 10px;}
+    .bannerForm .innerForm ul li        { margin: 6px 0;}
+    .doctorInfo .weOfferLeft            { min-width: 210px;}
+    .weOfferLeft h4 span                { display: block;}
+    .mobileMenuAddress                  { display: block; }
+    .newAppointmentDetails              { flex-direction: column; align-items: flex-start;}
+    .newAppointmentDetails ul           { flex-direction: column; align-items: flex-start; margin-top: 10px;}
+    .newAppointmentDetails ul li        { max-width: 100% !important; margin: 0; margin-top:10px;}
+    .newAppointmentDetails ul li p      { margin: 0;}
+
+    /* blog  */
+    .blogItem                           { width: calc(50% - 8px); margin-bottom: 16px;}
+
+    .whatKaizenMain .resp-tabs-list li  { font-size: 12px; padding: 16px 10px !important;}
+    .ourPhilisophyImage                 { width: 300px;}
+    .ourPhilisophyContent ul li a span  { width: 50px; height: 50px;}
+    .ourPhilisophyContent ul li         { margin: 0 6px;}
+    .ourPhilisophyContent ul li a       { font-size: 12px;}
+    .ourTeamSlider.owl-carousel         { width: calc(100% - 100px) !important;}
+    .aboutLocation .locationItem        { width: calc(50% - 14px);}
+    .galleryItem                        { min-height: 150px;}
+    .galleryItem img                    { max-height: 140px;}
+}
+
+@media (max-width: 767px)               {
+    h2                                  { font-size: 16px;line-height: 21px;}
+    h3                                  { font-size: 16px;line-height: 20px;}
+    h4                                  { font-size: 14px;line-height: 20px;}
+    h5                                  { font-size: 12px;line-height: 16px;} 
+    .button                             { line-height: 36px;}
+    .space40                            { padding: 20px 0;}
+    .container                          { padding: 0 12px;}
+    .bannerImage                        { min-height: 320px;}
+    .ourService                         { padding: 12px;}
+    .ourService .owl-nav button         { width: 30px; height: 30px; margin: 0 5px; }
+    .ourService .owl-nav button:before  { width: 6px; height: 6px;}
+    .ourService .owl-nav                { top: -70px;}
+    .getinTouch .container              { flex-direction: column; text-align: center; }
+    .getinTouch h2 br                   { display: none;}
+    .getReady .subscription             { min-width: 300px;}
+    .whatKaizen,.weOffer                { flex-direction: column;}
+    .weOfferLeft                        { min-width: 100%; padding:  0 0 20px 0; } 
+    .weOfferContent                     { padding-left: 0;}
+    .ourDoctors .owl-carousel.owl-drag .owl-item.center { transform: scale(0.9); top: 0;}
+    .ourDoctors                         { position: relative;}
+    .ourDoctors .slick-arrows           { position: absolute;left: 0;width: 100%;height: 0px;bottom: 50%;place-content: space-between;}
+    .bannerImage                        { min-height: 200px;}
+    .ourService                         { margin-top: 0;width: calc(100% + 24px);left: -12px;border-radius: 0;}
+    .knowKaizenCaouusel, .newsSectionCaouusel, .hospitalBlog,.gallerySliderMain { width: calc(100% - 80px) !important;}
+    .ourTeamSlider.owl-carousel .owl-nav, .knowKaizen .owl-carousel .owl-nav, .newsSectionMain .owl-carousel .owl-nav, .hospitalBlogMain .owl-carousel .owl-nav,.gallerySliderMain .owl-carousel .owl-nav  { width: calc(100% + 80px); left: -40px;}
+    .owl-nav button,button.slick-prev, button.slick-next{ width: 36px; height: 36px;}
+    .outer                              { max-width: 100%;}
+    #big .owl-nav                       { width: calc(100% + 90px); left: -45px;}
+    .outer::before                      { width: 30px; height: 30px; margin: 20px auto 10px;}
+    .commentSection a .heading          { font-size: 13px; line-height: 14px; margin-left: 5px;}
+    #big.owl-carousel .item             { padding: 10px 0; min-height: inherit;}
+    #thumbs .item                       { height: 50px; line-height: 50px; }
+    .commentSection .owl-carousel.owl-drag .owl-item.current a { padding: 5px;}
+    .commentSection a img               { width: 40px;}
+    .commentSection a .item             { padding: 10px;}
+    .commentSection a                   { padding: 5px;}
+    .getinTouch div                     { padding: 0 12px;}
+    .commentSection a .heading small    { font-size: 10px;}
+    .innerPageBanner .bannerImage       { min-height: 140px !important; }
+
+    .doctorInfo                         { flex-direction: column-reverse;}
+    .doctorInfo .weOfferLeft            { padding: 0; margin-right:0px;margin-bottom: 20px;}
+    .doctorInfo .resp-vtabs .resp-tabs-container { width: 100% !important;}
+    .doctorInfo .resp-vtabs .resp-tabs-container      { padding: 0;}
+    .doctorInfo h2.resp-accordion       {   color: #1D1E2C;}
+    .doctorInfo h2.resp-tab-active      { background-color: #07EEB6 !important; color: #1D1E2C;}
+    .doctorInfo h2.resp-tab-active span.resp-arrow   { border: solid 2px #1D1E2C;border-right: none;border-top: none;margin-top: 7px;}
+    .doctorInfo .resp-arrow             { border: none;width: 10px;height: 10px;border: solid 2px #1D1E2C;border-left: none;border-bottom: none;transform: rotate(135deg);}
+    .doctorInfo .resp-tab-content       { padding: 16px;}
+    .doctorInfoData                     { padding: 0;}    
+    .serviceDepartBg .weOfferContent ul { flex-direction: column; margin: 0;}
+    .serviceDepartBg .weOfferContent ul li { width: 100%; }
+    .successHeader                      { width: 100% !important;}
+    .successHeader ul                   {  top: 5px;}
+    .banner .owl-dots                   { bottom: 10px;}
+    .banner .owl-dots .owl-dot          { width: 14px; height: 14px;}
+    .extralink                          { background-color: var(--default-text-color); width: 100%;bottom: 0;top: auto;transform: inherit;right: 0; border-top: solid 1px var(--secondary-bg-color);}
+    .extralink ul                       { flex-direction: row; display: flex;}
+    .extralink ul li                    { flex-direction: column; margin: 0; display: flex;flex: 1;}
+    .extralink ul li a                  { flex-direction: column; box-shadow: none; min-height: 36px; font-size: 12px; right: 0;text-align: center;line-height: 14px;padding: 5px 2px;/*border-right: solid 1px var(--secondary-text-color);*/height: 58px;padding-top: 10px; position: static;}
+    .extralink ul li a span             { width: 36px; height: 20px;background-color: transparent;border-radius: 0;margin-bottom: 5px; margin-right: 0;}
+    .extralink ul li a span img         { width: 16px;}
+    .extralink ul li a small            { display: none;}
+    .extralink ul li:last-child a       { border: none;}
+    .ourPhilisophy                      { flex-direction: column; text-align: center;}
+    .ourPhilisophyImage                 { margin: 0 auto 20px; padding-right: 0; width: 90%;}
+    .ourPhilisophyContent ul            { place-content: center; align-items: center; margin:10px 0;}
+    .ourPhilisophy h2:after             { right: 0; margin: auto; width: 100px;}
+    .html5-prev-fullscreen, .html5-next-fullscreen,#html5-close-fullscreen { transform: scale(0.8) !important; -webkit-transform: scale(0.8) !important;}
+    .html5-next-fullscreen              { right: -5px !important;}
+    .html5-prev-fullscreen              { left: -5px !important;}
+    #html5-close-fullscreen             { top: -5px !important; right: -5px !important;}
+    .gallerySliderMain .text-center p   { padding-bottom: 10px !important; }
+    .bannerForm                         { position: static;}
+    .bannerForm .innerForm              { position: static; width: 100%;  transform: none; -webkit-transform: none; border-radius: 0;}
+    .bannerForm .innerForm ul           { max-width: 320px; margin: 0 auto;}
+    .banner .container                  { padding: 0;}
+    .doctorInfo .weOfferLeft            { display: none;}
+    .banner .innerForm a                { border-radius: 0;}
+    .banner .innerForm h5               { font-size: 14px;}
+    .knowCaouuselItem .heading          { font-size: 14px;}
+
+    .back-to-top                        { transform: scale(0.8);-webkit-transform: scale(0.8);bottom: 60px;right: 0;}
+    /* Our Team  */
+    .ourTeam ul li                      { width: 50%;padding-left: 15px;padding-right: 15px;}
+    .ourTeam                            { margin-top: 30px;}
+    .serviceSearchBlock                 { min-width: calc(100% - 100px); width: calc(100% - 100px); min-height: 38px; flex: 1;}
+    .ourTeam h5                         { font-size: 14px;}
+    
+    /* Services  */
+    .serviceItems                       { width: 90%; margin: 50px auto 0;}
+    .serviceItems>ul>li                 { width: 50%; padding: 61px 10px 10px 20px;}
+    .serviceLeft                        { padding-top: 0;}
+    .serviceContent                     { padding-left: 15px;}
+    .serviceContent .resp-vtabs .resp-tab-content { padding: 15px;}
+    body h2.resp-tab-active             { background-color: var(--primary-bg-color) !important; color: var(--secondary-text-color);}
+    h2 span.resp-arrow                  { border-top-color: var(--tertiary-text-color);width: 10px;height: 10px;border: 2px solid !important;display: block;border-left: var(--tertiary-bg-color);border-right: var(--tertiary-text-color);border-top: none !important;border-left: none !important;transform: rotate(45deg);}
+    h2.resp-tab-active span.resp-arrow  { border-bottom-color: var(--secondary-bg-color);transform: rotate(-135deg);position: relative;top: 5px;}
+
+    /* Patient Tabs  */
+    .patientTabs #verticalTabs          { margin: 20px 0 !important;}
+    .patientTabs h2.resp-accordion      { display: flex !important; align-items: center;padding: 8px 30px 8px 8px !important;}
+    .patientTabs h2.resp-accordion small{ font-size: 14px; font-weight: 500;}
+    .patientTabs h2.resp-accordion .icon{ background-color: var(--primary-bg-color); padding: 5px; border-radius: 33px; display: flex; place-content: center; align-items: center; margin-right: 8px;  min-width: 33px; min-height: 33px; border: solid 2px var(--secondary-bg-color);}
+    .patientTabs h2.resp-accordion      { position: relative; }
+    .patientTabs h2.resp-accordion .icon img { width: auto; height: 20px;}
+    .patientTabs h2 span.resp-arrow     { position: absolute; right: 14px; top: 0; bottom: 5px; margin: auto;}
+    .patientTabs h2.resp-tab-active  span.resp-arrow { bottom: 0 !important;}
+    .cancerTypes ul li                  { width: calc(50% - 10px);}
+    #verticalTabs .resp-tabs-container .resp-tab-content { border: solid 1px var(--primary-bg-color);}
+    .patientTabs                        { margin-bottom: 25px;}
+    .cancerTypes ul                     { margin: 10px 0;}
+    .cancerBlock                        { flex-direction: column; padding: 0;}
+    .cancerContent                      { padding: 0; margin-top: 20px;}
+
+    /* Appointment */
+    .appointmentForm ul li .genderAge   { flex-direction: column; align-items: flex-start; }
+    .appointmentForm ul li .ageDiv      { margin: 8px 0 0 0;}
+
+    /* blog */
+    .blogVarient                        { padding: 12px 0;}
+    .blogRight h4                       { margin: 0 12px;}
+    .blogVarient ul li                  { padding-left: 12px; padding-right: 12px;}
+    .blogRight                          { width: 240px; padding-left: 20px;}
+    .blogVarient,.postContactForm       { margin-bottom: 15px;}
+
+    /* Footer  */
+    /* .copyRights                         { margin-bottom: 60px; } */
+    .footerRight                        { padding: 0; margin-top: 10px;}
+    footer .container                   { flex-direction: column;}
+    .footerlinks:nth-child(1)           { width: 50%;}
+    .footerlinks:nth-child(2)           { width: 50%;}
+    .addressBlock                       { width: 100%;}
+    .serviceLeft .mobileDrop.mobileDrop { display: none;}
+
+    /* .doctorsBanner.teamBanner .bannerImage{ min-height: 300px; background-position: 98% center; } */
+    .whatKaizenTabLft                   { min-width: 200px; width: 200px;}
+    .onloadSection                      { width: calc(100% - 10px);}
+    .onloadTop h4,.onloadAddress h4     { padding: 5px; font-size: 12px;}
+    .onloadBottom                       { padding: 10px;}
+    .onloadInfo                         { padding-bottom: 20px;}
+    .onloadInfo ul li                   { width: calc(30% - 8px);}
+    .onloadInfo ul li a                 { min-height: 110px; padding: 0;}
+    .onloadInfo ul li a span            { font-size: 12px;line-height: 16px;}
+    .onloadInfo ul li a img             { width: 35px;}
+    .onloadInfo ul li:last-child        { width: calc(40% - 8px);}
+    .onloadAddress ul                   { width: 260px;}
+    .onloadAddress ul li                { font-size: 12px;}
+    .closeButton                        { transform: scale(0.7); -webkit-transform: scale(0.7); right: 5px; top: 5px;}
+    .whatKaizenMain                     { padding-top: 10px;}
+    .targetSection                      { top: -70px;}
+
+    .resp-tabs-container .aboutcancer {position: relative; display: flex !important;flex-direction: row;align-items: center;border: 1px solid var(--primary-bg-color); padding: 8px 30px 8px 8px;font-size: 14px;border-top: none;} 
+    .resp-tabs-container .aboutcancer .icon{ background-color: var(--primary-bg-color); padding: 5px; border-radius: 33px; display: flex; place-content: center; align-items: center; margin-right: 8px;  min-width: 33px; min-height: 33px; border: solid 2px var(--secondary-bg-color);}
+    .resp-tabs-container .aboutcancer .icon img { width: auto; height: 20px;}
+    
+    .tabsContent .tabsInnerContent     { display: none; padding: 12px; border: solid 1px var(--primary-bg-color); border-top: none;}
+    .tabsContent                       { display: block !important; border-top: solid 1px var(--primary-bg-color); margin: 10px 0;} 
+    
+    
+     .patientTabs #verticalTabs > ul    { display: none;}
+     .resp-tabs-container .aboutcancer::before  {position: absolute; right: 20px; top: 0; bottom: 5px; margin: auto; content: ''; border-top-color: var(--tertiary-text-color);width: 10px;height: 10px;border: 2px solid !important;display: block;border-left: var(--tertiary-bg-color);border-right: var(--tertiary-text-color);border-top: none !important;border-left: none !important;transform: rotate(45deg);}
+    
+    .aboutcancer.active                 { background-color: var(--primary-bg-color) !important; color: var(--secondary-text-color); }
+    .aboutcancer.active::before         { transform: rotate(-135deg); top: 5px; }
+    .ourPhilisophyImage h2              { display: block; margin-top: 0; margin-bottom: 10px;}
+    .whoWeAre .ourPhilisophyContent h2  { display: none;}
+
+
+
+
+    .serviceContent                     { padding-left: 0;}
+    .serviceData                        { flex-direction: column-reverse;}
+    .serviceLeft                        { margin-top: 10px; width: 100%;}
+    .servicelinks h3                    { font-size: 14px;} 
+    .servicelinks                       { overflow: auto;flex: 1;display: flex;flex-direction: column;}
+    .activeService h4                   { border-radius: 0;}
+    .activeService                      { border-radius: 0 0 8px 8px; box-shadow: 2px 2px 2px #00000029; margin-bottom: 10px;}
+    .innerForm                          { border-radius: 0 0 8px 8px;  }
+    .moreServices                       { border-radius: 0 0 8px 8px; margin-top: 15px;}
+    .moreServices h3                    { border-radius: 0;}
+    .cancerItem                         { margin: 10px 0;}
+    .cancerItem .cancerType             { min-height: 50px; position: relative; display: flex !important;flex-direction: row;align-items: center;border: 1px solid var(--primary-bg-color); padding: 8px 40px 8px 8px;font-size: 14px; }
+    .cancerItem .cancerType::before     { position: absolute; right: 20px; top: 0; bottom: 5px; margin: auto; content: ''; border-top-color: var(--tertiary-text-color);width: 10px;height: 10px;border: 2px solid !important;display: block;border-left: var(--tertiary-bg-color);border-right: var(--tertiary-text-color);border-top: none !important;border-left: none !important;transform: rotate(45deg);}
+    .serviceContent img                 { width: 100%;}
+    .cancerItem .cancerType.active      { background-color: var(--primary-bg-color) !important; color: var(--secondary-text-color); }
+    .cancerItem .cancerType.active::before      { transform: rotate(-135deg); top: 5px; } 
+    .cancerItem .cancertypeContent      { display: none; padding: 12px; border: solid 1px var(--primary-bg-color); border-top: none;}
+    .cancerItem                         { display: block !important;}
+    .serviceData ul.resp-tabs-list      { display: none;}
+    .aboutcancers .activeserviceItems,.aboutcancers .typesCancerHeading { display: none;}
+}
+
+@media (max-width: 599px)               {
+    .bannerImage                        { min-height: 120px;}
+    .serviceSliderItem a                { border-radius: 10px; display: flex;flex-direction: column;align-items: center;text-align: center;border: solid 1px var(--default-text-color);padding: 12px 5px;min-height: 145px;}
+    .serviceSliderItem .data            { display: none;}
+    .serviceSliderItem .title           { font-size: 12px; line-height: 14px; min-height: 28px; display: flex;align-items: center; }
+    .serviceSliderItem .title.longService { font-size: 10px;}
+    .serviceSliderItem .title br        { display: none;}
+    .serviceSliderItem .button          { display: block;line-height: 28px;min-width: max-content;padding: 0 6px;margin-top: 4px;font-size: 12px;}
+    .serviceSliderItem .button:hover    { background-color: black;}
+    .searchService .button              { min-width: 80px;}
+    .serviceMain                        { text-align: center;}
+    .ourTeam ul li                      { text-align: left; width: 100%; max-width: 320px; }
+    .ourTeam ul li div                  {  border: solid 1px var(--default-bg-color);}
+    .ourTeam ul                         { margin: 0;}
+    .ourTeam ul li h5                   { margin-bottom: 20px;}
+    .ourTeam h5                         { margin-bottom: 0;}
+    .doctorInfoData p a                 { display: block;}
+    .serviceDepartBg                    { text-align: center;}
+    .weOfferContent ul li .icon         { margin: 0 auto;}
+    .innerPageBanner .bannerImage       { min-height: 90px !important; }
+
+    /* Services  */
+    .serviceItems                       { margin: 30px auto 0;} 
+    .serviceItems>ul>li a               { min-height: 230px;}
+    .serviceItems>ul>li a .data         { padding: 12px;}
+    .serviceItems>ul>li a .data .serviceList { margin: 8px 0;}
+    .serviceItems>ul>li                 { width: 100%; padding: 40px 10px 10px 20px;margin-bottom: 0;}
+    .serviceItems>ul>li a .icon         { width: 80px; height: 80px; left: calc(50% - 40px); top: -40px; }
+    .serviceItems>ul>li a .icon img     { width: 50px;}
+    /* .serviceContent                     { padding-left: 0;}
+    .serviceData                        { flex-direction: column-reverse;}
+    .serviceLeft                        { margin-top: 10px; width: 100%;}
+    .servicelinks h3                    { font-size: 14px;}
+    .activeService                      { border-left: solid 1px rgba(0,0,0,0.19);}
+   .servicelinks                        { overflow: auto;flex: 1;display: flex;flex-direction: column;}
+   .activeService h4                    { border-radius: 0;}
+   .activeService                       { border-radius: 0 0 8px 8px; box-shadow: 2px 2px 2px #00000029; margin-bottom: 10px;}
+   .innerForm                           { border-radius: 0 0 8px 8px;  }
+   .moreServices                        { border-radius: 0 0 8px 8px; margin-top: 15px;}
+   .moreServices h3                     { border-radius: 0;} */
+   .serviceLeft .mobileDrop.mobileDrop  { color: var(--secondary-text-color); font-size: 14px; display: flex;}
+   .extraMobileSpace                    { display: block; min-height: 59px;}
+   .ourPhilisophyImage                  { margin: 0 auto 15px;}
+   /* Patient Tabs  */
+   .cancerTypes ul li                   { width: calc(100% - 10px); margin: 12px auto 0;}
+   .cancerTypes ul li a                 { margin: 0; padding: 10px; min-height: 50px; }
+   /* .aboutcancers .activeserviceItems,.aboutcancers .typesCancerHeading { display: none;} */
+
+    /* Appointment */
+    .appointmentForm                    { padding: 15px 15px 20px 15px; margin-bottom: 0;}
+    .appointmentForm ul li              { width: 100%;margin: 10px 0;}
+    .appointmentForm ul li .ageDiv      { margin-top: 16px;}
+    .appointmentForm ul li .genderDiv   { flex-direction: column;align-items: flex-start;min-height: 46px;place-content: space-between;}
+    .appointmentForm ul li .gender input{ margin-left: 0;}
+    .appointmentForm ul li .gender label{ margin-right:10px;}
+    .appointmentForm ul li .searchItem  { width: 100%; margin-bottom: 15px;}
+    .appointmentForm ul li .searchItem +  .searchItem{ margin-bottom: 0;}
+    .appointmentmain h2                 { padding-bottom: 10px; margin-bottom: 15px; }
+    .appointmentmain h2 img             { width: 35px; }
+    .appointmentForm ul li .genderDiv h5{ margin: 0 0 8px 0;}
+    .appointmentForm ul li .ageDiv      { margin: 0;width: 100px;}
+    .appointmentForm ul li .genderAge   { flex-direction: row;align-items: center;} 
+
+    /* contact form */
+    .contactBlock                       { flex-direction: column;}
+    .contactForm                        { width: 100%; padding: 12px; margin-top: 12px;}
+    .contactRight                       { width: 100%; border-radius: 10px; order: -1;}
+    .contactForm ul li                  { margin: 10px 0;}
+    .contactForm ul li div              { width: 100%; margin-top: 10px;}
+    .contactForm ul li:first-child      { flex-direction: column;}
+    .contactForm ul li h5               { margin: 0 0 5px 0;}
+    .contactForm h6                     { margin-bottom: 0px;}
+    .locationSection                    { flex-direction: column; margin-top: 10px; }
+    .locationItem                       { width: 100%;}
+
+    /* Blog  */
+    .blogSection                        { flex-direction: column; padding-top: 15px; }
+    .blogRight                          { width: 100%;padding-left: 0;margin-top: 5px;}
+    .blogFilter                         { flex-direction: column;align-items: stretch;padding-bottom: 10px;}
+    .blogFilter select                  { height: 36px; width: calc(100% - 24px); max-width: calc(100% - 20px); margin-top: 10px; box-sizing: border-box;}
+    .blogFilter h5                      { padding: 0 12px; min-height: 38px;margin: 0;}
+    .blogDetails ul li                  { font-size: 10px;line-height: 10px}
+    .blogDetails ul li img              { height: auto; width: 14px; margin-right: 4px; }
+    .authorsInfo                        { flex-direction: column; margin: 0 0 10px 0;  }
+    .authorsInfo span                   {  margin: 0 0 10px 0;  }
+    .blogData img                       { margin-bottom: 6px;}
+    .sharePost,.aboutAuthor,.postForm,.postContactForm,.latestPost{ padding: 12px; margin-bottom: 15px;}
+    .postForm                           { margin-bottom: 20px;}
+    .xdsoft_datetimepicker .xdsoft_timepicker, .xdsoft_datetimepicker .xdsoft_datepicker { float: none !important;}
+    .breadcrumbs ul li                  { font-size: 12px;}
+    .doctorsBanner .bannerImage         { min-height: 120px; }
+    /* .doctorsBanner.teamBanner .bannerImage{ min-height: 180px; background-position: 98% center; } */
+    .whatKaizenTabLft                   { min-width: 100%; width: 100%; padding-right: 0; margin-bottom: 14px;}
+    .whatKaizenTabData                  { flex-direction: column;}
+    .whatKaizenMain .resp-tab-content   { border: solid 1px var(--secondary-bg-color); padding: 12px; }
+    .ourTeamSlider.owl-carousel         { width: calc(100% - 80px) !important;}
+    .ourTeamItem                        { padding: 5px;}
+    .ourTeamItem small                  { min-height: 48px;}
+    .ourApproach                        { text-align: center;}
+    .ourApproach ul li h4               { place-content: center; margin: 0 0 6px 0;}
+    .ourApproach h2                     { margin-bottom: 10px;}
+    .ourApproach ul li                  { width: 100%; margin: 10px 0;}
+    .whatKaizenMain .slider-nav .slick-slide { font-size: 12px;}
+    .aboutLocation .locationItem        { width: 100%; margin: 0 0 16px 0;}
+
+    /* .cancerItem                         { margin: 10px 0;}
+    .cancerItem .cancerType             { min-height: 50px; position: relative; display: flex !important;flex-direction: row;align-items: center;border: 1px solid var(--primary-bg-color); padding: 8px 40px 8px 8px;font-size: 14px; }
+    .cancerItem .cancerType::before     { position: absolute; right: 20px; top: 0; bottom: 5px; margin: auto; content: ''; border-top-color: var(--tertiary-text-color);width: 10px;height: 10px;border: 2px solid !important;display: block;border-left: var(--tertiary-bg-color);border-right: var(--tertiary-text-color);border-top: none !important;border-left: none !important;transform: rotate(45deg);}
+    .serviceContent img                 { width: 100%;}
+    .cancerItem .cancerType.active      { background-color: var(--primary-bg-color) !important; color: var(--secondary-text-color); }
+    .cancerItem .cancerType.active::before      { transform: rotate(-135deg); top: 5px; } 
+    .cancerItem .cancertypeContent      { display: none; padding: 12px; border: solid 1px var(--primary-bg-color); border-top: none;}
+    .cancerItem                         { display: block !important;}
+    .serviceData ul.resp-tabs-list      { display: none;} */
+    .cancertypeContent ul,.cancertypeContent ol{ margin-left: 10px;margin-top: 8px;}
+    .cancertypeContent ul li,.cancertypeContent ol li { margin: 6px 0;}
+.pagecancerChanges .cancerItem .cancertypeContent { display: block; border-top: solid 1px var(--primary-bg-color);}
+ .aboutcancers.pagecancerChanges .activeserviceItems { display: block;}
+ .galleryItem                           { min-height: 90px;}
+ .galleryItem img                       { max-height: 80px;}
+ .hospitabBlogContent h4                { min-height: 32px; font-size: 12px;}
+ .blogOptions                           { flex-direction: column; place-content: flex-start; align-items: flex-start;}
+ .blogOptions ul li:nth-child(1)        { margin-left: 0; }
+}

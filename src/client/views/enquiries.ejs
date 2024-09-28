@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from medical-dash.netlify.app/html/hos-edit-doctor.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:28:50 GMT -->
+  <!-- Added by HTTrack -->
+  <meta
+    http-equiv="content-type"
+    content="text/html;charset=UTF-8"
+  /><!-- /Added by HTTrack -->
+
+  <head>
+    <!-- 
+        * @Package:  Multipurpose Dashboard
+        * @Version: 1.0.0
+    -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Enquiries</title>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets1/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <!-- For iPhone -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="../assets1/images/apple-touch-icon-57-precomposed.png"
+    />
+    <!-- For iPhone 4 Retina display -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="../assets1/images/apple-touch-icon-114-precomposed.png"
+    />
+    <!-- For iPad -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="../assets1/images/apple-touch-icon-72-precomposed.png"
+    />
+    <!-- For iPad Retina display -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="../assets1/images/apple-touch-icon-144-precomposed.png"
+    />
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link
+      href="../assets1/plugins/pace/pace-theme-flash.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="../assets1/plugins/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/fonts/font-awesome/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/fonts/webfont/cryptocoins.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/css/animate.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      rel="stylesheet"
+    />
+
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../assets1/css/responsive.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- CORE CSS TEMPLATE - END -->
+  </head>
+  <!-- END HEAD -->
+
+  <!-- BEGIN BODY -->
+
+  <body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+      <!-- SIDEBAR - START -->
+      <%-include("partials/sidebar.ejs") %>
+
+      <!--  SIDEBAR - END -->
+
+      <!-- START CONTENT -->
+      <section id="main-content" class="">
+        <div class="wrapper main-wrapper row">
+          <!-- MAIN CONTENT AREA STARTS -->
+
+          <div class="col-xs-12">
+            <div class="card form-card mb-4 pb-4">
+              <div class="card-body px-5 text-dark">
+                <span class="head-name p-0">Enquiries</span>
+              </div>
+              <div class="row px-5">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="p-head">First Name</th>
+                      <th scope="col" class="p-head">Last Name</th>
+                      <th scope="col" class="p-head">Created Date</th>
+                      <th scope="col" class="p-head">Email Id</th>
+                      <th scope="col" class="p-head">Phone Number</th>
+                      <th scope="col" class="p-head">Message</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let i=0; i < allenquiries.length; i++ ) { %>
+                    <tr>
+                      <th scope="row">
+                        <%= allenquiries[i].firstname %>
+                      </th>
+                      <td>
+                        <%= allenquiries[i].lastname %>
+                      </td>
+                      <td class="createdDate">
+                        <%= allenquiries[i].createdAt %>
+                      </td>
+                      <td>
+                        <%= allenquiries[i].email %>
+                      </td>
+                      <td>
+                        <%= allenquiries[i].phonenumber %>
+                      </td>
+                      <td>
+                        <%= allenquiries[i].message %>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- MAIN CONTENT AREA ENDS -->
+        </div>
+      </section>
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script>
+      window.jQuery ||
+        document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <script src="../assets1/js/navbar.js"></script>
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="../assets1/js/script.js"></script>
+    <script src="../assets1/js/scripts.js"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+<script>
+  $(".createdDate").each(function () {
+    // Log the original date string to check its format
+
+    // Parse the date string into a Date object
+    const dateString = $(this).text().trim();
+    const createdDate = new Date(dateString);
+
+    // Check if the date is valid
+    if (!isNaN(createdDate.getTime())) {
+      // Format the date to extract the desired part
+      const options = { year: 'numeric', month: 'short', day: '2-digit' };
+      const formattedDate = createdDate.toLocaleDateString('en-US', options);
+      
+      // Display the formatted date
+      $(this).html(formattedDate);
+    } else {
+      // Handle invalid date
+      $(this).html("Invalid Date");
+      console.error("Invalid Date:", dateString);
+    }
+  });
+</script>
+
+  </body>
+
+  <!-- Mirrored from medical-dash.netlify.app/html/hos-edit-doctor.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:28:50 GMT -->
+</html>

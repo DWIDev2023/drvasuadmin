@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets1/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="../assets1/images/apple-touch-icon-57-precomposed.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets1/images/apple-touch-icon-114-precomposed.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets1/images/apple-touch-icon-72-precomposed.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets1/images/apple-touch-icon-144-precomposed.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="../assets1/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS TEMPLATE - END -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+
+        <!-- SIDEBAR - START -->
+        <%-include("partials/sidebar.ejs") %>
+        <!--  SIDEBAR - END -->
+        <!-- START CONTENT -->
+        <section id="main-content" class=" ">
+            <div class="wrapper main-wrapper row">
+                <div class="row py-3 px-2 justify-content-between">
+                    <div class="col-md-6">
+                        <span class="head-name text-dark">Services</span>
+                    </div>
+                    <div class="col-md-6 btn-div">
+                      <a href="/addservice"><button type="submit" value="submit" class="btn link1 ">+ Add Service</button></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!-- MAIN CONTENT AREA STARTS -->
+ <div class="col-xs-12 mb-3">
+                        <section class="row">
+                          <% for(let i =0; i < services.length; i++){%>
+                            <div class="col-lg-3 col-md-6 mb-3">
+                             
+                                <div class="card text-center alldoctorscard">
+                                  <div class="card-body">
+                              
+                                    <div> 
+                                      <img src="/uploads/<%= services[i].service_url%>" alt="">
+                                    </div>
+                               
+                                    <div class="icon dots"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                      <div class="icon-btns border flex-column">
+                                        <p class="mb-0"><a href="/addservice/<%= services[i]._id %>?formtype=edit">Edit</a></p>
+                                        <p class="mb-0"><a href="/deleteservice/<%= services[i]._id %>">Delete</a></p>
+                                      </div>
+                                    </div>
+                                 
+
+                                    <h5 class="card-title doctorname"><%= services[i].service_name %> </h5>
+                                                            
+                                  </div>
+                                </div>
+                            
+                            </div>
+                            <% } %>
+                        </section>
+                    </div> 
+                   
+                </div>
+                <!-- MAIN CONTENT AREA ENDS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <script src="../assets1/js/navbar.js"></script>
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="../assets1/js/script.js"></script>
+    <script src="../assets1/js/scripts.js"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+
+</body>
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+</html>

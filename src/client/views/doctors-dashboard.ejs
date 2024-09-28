@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets1/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="../assets1/images/apple-touch-icon-57-precomposed.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="../assets1/images/apple-touch-icon-114-precomposed.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets1/images/apple-touch-icon-72-precomposed.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="../assets1/images/apple-touch-icon-144-precomposed.png">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="../assets1/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS TEMPLATE - END -->
+
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+
+        <!-- SIDEBAR - START -->
+        <%-include("partials/sidebar.ejs") %>
+
+        <!--  SIDEBAR - END -->
+        <!-- START CONTENT -->
+        <section id="main-content" class=" ">
+            <div class="wrapper main-wrapper row">
+
+
+                <div class="clearfix"></div>
+                <!-- MAIN CONTENT AREA STARTS -->
+                <div class="col-xs-12">
+
+                    <section class=" row doctor-profile">
+                        <div class="col-lg-12">
+                            <section class="box nobox marginBottom0">
+                                <div class="content-body">
+                                    <div class="">
+                                        <div class="col-md-3 col-sm-3 p-2">
+                                            <div class="card1 d-flex justify-content-between">
+                                                <div class="">
+                                                    <% if(user.role==0) {%>
+                                                        <p class="mb-0 text-white py-2 pl-2">Blogs/Videos</p>
+                                                    <p class="text-white pl-2"><%= totalblogs %></p>
+                                                        <% }else{%>
+                                                    <p class="mb-0 text-white py-2 pl-2">DOCTORS</p>
+                                                    <p class="text-white pl-2"><%= totaldoctors %></p>
+                                                    <% }%>
+
+                                                </div>
+                                                <div class="pull-right1">
+                                                    <img src="../data1/img1.png" class="ico-icon-o" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 ">
+                                            <div class="card1 d-flex justify-content-between">
+                                                <div class="">
+                                                    <p class="mb-0 text-white py-2 pl-2">APPOINTMENTS</p>
+                                                    <p class="text-white pl-2"><%= totalappointments.length %></p>
+                                                </div>
+                                                <div class="pull-right1">
+                                                    <img src="../data1/img2.png" class="ico-icon-o" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 p-2">
+                                            <div class="card1 d-flex justify-content-between">
+                                                <div class="">
+                                                    <p class="mb-0 text-white py-2 pl-2">ATTENDED</p>
+                                                    <p class="text-white pl-2"><%= completedappointments.length %></p>
+                                                </div>
+                                                <div class="pull-right1" style="padding-right: 0;">
+                                                    <img src="../data1/img3.png" class="ico-icon-o2" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 pr-0">
+                                            <div class="card1 d-flex justify-content-between">
+                                                <div class="">
+                                                    <p class="mb-0 text-white py-2 pl-2">PENDING</p>
+                                                    <p class="text-white pl-2"><%= upcomingappointments.length %></p>
+                                                </div>
+                                                <div class="pull-right1">
+                                                    <img src="../data1/img4.png" class="ico-icon-o" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End .row -->
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="clearfix"></div>
+                <!-- MAIN CONTENT AREA STARTS -->
+                <div class="col-xs-12 hidden">
+
+                    <section class="row  doctor-profile">
+                        <div class="col-lg-12 doctors-table">
+                            <section class="box " style="overflow:hidden">
+                                <header class="panel_header d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <h2 class="title pull-left p-head">Upcoming Appointments</h2>
+                                    </div>
+                                    <%  if(upcomingappointments.length > 0){ %>
+
+                                    <div>
+                                        <h4 class="head-name py-1"><a href="/downloadappointments" class="upcoming-btn mr-15">Download</a></h4>
+                                    </div>
+                                    <% } %>
+                                </header>
+                                <div class="content-body">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="p-head">Patient</th>
+                                                            <th class="p-head">Doctor</th>
+                                                            <th class="p-head">Date</th>
+                                                            <th class="p-head">Timing</th>
+                                                            <th class="p-head">Contact</th>
+                                                            <th class="p-head">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <%  if(upcomingappointments.length == 0){ %>
+                                                        <tr>
+                                                            <td>No upcoming appointments</td>
+                                                        </tr>
+                                                        <% }else{ %>
+
+                                                        <% for(let i =0; i < upcomingappointments.length; i++){ %>
+                                                        <tr>
+                                                            <td><%= upcomingappointments[i].patientName %></td>
+                                                            <td><%= upcomingappointments[i].preferredDoctor %></td>
+                                                            <td><%= upcomingappointments[i].appointmentDate %></td>
+                                                            <td><%= upcomingappointments[i].appointmentTime %></td>
+                                                            <td>+91 <%= upcomingappointments[i].patientMobile %></td>
+                                                            <td><a href="./addappointment/id=<%= upcomingappointments[i]._id %>?formtype=edit" class="edit-btn">Edit</a>|<a href="./deleteappointment/?id=<%= upcomingappointments[i]._id %>"
+                                                                    class="delete-btn">Delete</a></td>
+                                                        </tr>
+                                                        <% } } %>
+                                                      
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-4" style="display: none;">
+                            <section class="box ">
+                                <div class="content-body p">
+                                    <div class="row">
+                                        <div class="doctors-list relative">
+                                            <div class="doctors-head text-dark">
+                                                <h3 class="header relative bold text-left text-dark">Doctors</h3>
+                                            </div>
+
+                                            <div class="col-xs-12">
+                                                <ul class="project-activity list-unstyled mb-0">
+                                                    <li class="activity-list warning">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc1.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message">
+                                                                    <span class="text-info bold">Dr : </span> Mutten
+                                                                    Sultan
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Blood Check
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="clearfix"></li>
+                                                    <li class="activity-list info">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc2.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Smith
+                                                                    Watson
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Thryoid Test
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="activity-list success">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc3.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Sarah
+                                                                    Mutten
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Full Blood image
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="activity-list danger">
+                                                        <div class="detail-info pb0">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc1.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Morese
+                                                                    Sharpe
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Full Body Test
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group no-mb">
+                                                <button type="button" class="btn  mt-20 " style="width:100%"> View all
+                                                    doctors</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-xs-12">
+
+                    <section class=" row  doctor-profile hidden">
+                        <div class="col-lg-12 doctors-table">
+                            <section class="box" style="overflow:hidden">
+                                <header class="panel_header">
+                                    <h2 class="title pull-left p-head">Completed Appointments</h2>
+                                </header>
+                                <div class="content-body">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="p-head">Patient</th>
+                                                            <th class="p-head">Doctor</th>
+                                                            <th class="p-head">Date</th>
+                                                            <th class="p-head">Timing</th>
+                                                            <th class="p-head">Contact</th>
+                                                            <th class="p-head">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody> 
+                                                        <%  if(completedappointments.length == 0){ %>
+                                                            <tr>
+                                                                <td>No Completed appointments</td>
+                                                            </tr>
+                                                            <% }else{ %>
+                                                        <% for(let i =0; i < completedappointments.length; i++){ %>
+                                                            <tr>
+                                                                <td><%= completedappointments[i].patientName %></td>
+                                                                <td><%= completedappointments[i].preferredDoctor %></td>
+                                                                <td><%= completedappointments[i].appointmentDate %></td>
+                                                                <td><%= completedappointments[i].appointmentTime %></td>
+                                                                <td>+91 <%= completedappointments[i].patientMobile %></td>
+                                                                <td>completed</td>
+                                                            </tr>
+                                                            <% } }%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-4" style="display: none;">
+                            <section class="box ">
+                                <div class="content-body p">
+                                    <div class="row">
+                                        <div class="doctors-list relative">
+                                            <div class="doctors-head text-dark">
+                                                <h3 class="header relative bold text-left text-dark">Doctors</h3>
+                                            </div>
+
+
+                                            <div class="col-xs-12">
+                                                <ul class="project-activity list-unstyled mb-0">
+                                                    <li class="activity-list warning">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc1.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message">
+                                                                    <span class="text-info bold">Dr : </span> Mutten
+                                                                    Sultan
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Blood Check
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="clearfix"></li>
+                                                    <li class="activity-list info">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc2.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Smith
+                                                                    Watson
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Thryoid Test
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="activity-list success">
+                                                        <div class="detail-info">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc3.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Sarah
+                                                                    Mutten
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Full Blood image
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="activity-list danger">
+                                                        <div class="detail-info pb0">
+                                                            <div class="doc-img-con pull-left mr-10">
+                                                                <img src="../data1/hos-dash/doc1.jpg" width="80" alt="">
+                                                            </div>
+                                                            <div class="visit-doc">
+                                                                <p class="message ">
+                                                                    <span class="text-info bold">Dr : </span> Morese
+                                                                    Sharpe
+                                                                </p>
+                                                                <small class="text-muted">
+                                                                    Full Body Test
+                                                                </small>
+                                                            </div>
+                                                            <div class="visit-date pull-right">
+                                                                <p class="mb-0">25 Nov</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group no-mb">
+                                                <button type="button" class="btn  mt-20 " style="width:100%"> View all
+                                                    doctors</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+        </section>
+
+        </section>
+
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <script src="../assets1/js/navbar.js"></script>
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="../assets1/js/script.js"></script>
+    <script src="../assets1/js/scripts.js"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+
+</body>
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+
+</html>

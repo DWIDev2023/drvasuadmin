@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kaizen</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets1/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="../assets1/images/apple-touch-icon-57-precomposed.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="../assets1/images/apple-touch-icon-114-precomposed.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets1/images/apple-touch-icon-72-precomposed.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="../assets1/images/apple-touch-icon-144-precomposed.png">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="../assets1/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css"rel="stylesheet"/>
+
+    <!-- CORE CSS TEMPLATE - END -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+
+        <!-- SIDEBAR - START -->
+        <%-include("partials/sidebar.ejs") %>
+
+        <!--  SIDEBAR - END -->
+        <!-- START CONTENT -->
+        <section id="main-content" class=" " data-userrole="<%= user.role %>">
+            <div class="wrapper main-wrapper row">
+
+
+            
+                <!-- MAIN CONTENT AREA STARTS -->
+                
+               
+                    <section class="box">
+                        <div class="row justify-content-between" style="padding-top: 20px;">
+                            <div class="col-md-6">
+                                <span class="head-name pl-3 text-dark">Blog</span>
+                            </div>
+                            <div class="col-md-6 btn-div">
+                                <button type="submit" value="submit" class="btn link1 submit-btn ql-formats" onclick="saveblog()">Submit</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="padding-bottom: 20px;">
+                            <div class="row py-2 justify-content-between" style="padding: 10px 20px 10px 20px;">
+                              <div class="row col-md-4">
+                                <div class="col-md-12"style="padding: 0 0 10px 0;">
+                                  <span class="blog-name">Blog Name</span>
+                              </div>
+                                <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                                    <input type="text" name="description-name" class="form-control " id="blogdisplayname" placeholder="Blog Name here" value="<%=bloginfo[0].displayname %>">
+                                </div>
+
+                                <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                                  <label for="servicecategory">Service Category</label>
+                                        <select type="text" name="servicecategory" class="form-control" id="servicecategory" required data-savedoption="<%= bloginfo[0]?.servicecategory %>"> 
+<option value="0" selected disabled > Select Category </option>
+<option value="1"> Endocrinology </option>
+<option value="2"> General Surgery </option>
+
+					</select>  
+                                </div>
+                                <div class="col-md-12"style="padding:0 0 10px 0;">
+                                  <span class="blog-name">Image Url</span>
+                              </div>
+                                <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                                    <input type="text" name="image-url" class="form-control" id="blogimageurl" placeholder="image url here" value="<%=bloginfo[0].displayimg%>">
+                                </div>
+                              </div>
+                                <div class="col-md-12"style="padding: 0px;">
+                                    <span class="blog-name">Description</span>
+                                </div>
+                            </div>
+                            <% if(formtype == 'edit'){ %> 
+                              <div id="editor-container" data-formtype="edit" data-blogid="<%= bloginfo[0]._id %>" data-doctorid="<%= bloginfo[0].doctorid  %>"><%= blogdesc %></div>
+                              <%} else {%>
+                                <div id="editor-container"></div>
+                          
+                                <%} %>
+                        </div>
+                    </section>
+
+                <!-- MAIN CONTENT AREA ENDS -->
+            </div>
+           
+
+        </section>
+
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <script src="../assets1/js/navbar.js"></script>
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="../assets1/js/script.js"></script>
+    <script src="../assets1/js/scripts.js"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="crossorigin="anonymous"></script>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    <script>
+      let departmentval = $('#servicecategory').attr('data-savedoption');
+        $('#servicecategory').val(departmentval)
+      var decodeHTML = function (html) {
+var txt = document.createElement('textarea');
+txt.innerHTML = html;
+return txt.value;
+};
+
+let bloghtml =  $('#editor-container').html()
+var decoded = decodeHTML(bloghtml);
+let bhtml = jQuery.parseHTML( decoded )
+
+$( "#editor-container" ).html('')
+ $( "#editor-container" ).append( bhtml );
+// Initialize QUill editor
+var quill = new Quill("#editor-container", {
+  modules: {
+    imageResize: {
+      displaySize: true,
+    },
+    toolbar: {
+      container: [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["link", "image"],
+
+        [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", "medium", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [{ align: [] }],
+
+        ["clean"], // remove formatting button
+      ],
+      handlers: {
+        image: imageHandler,
+      },
+    },
+  },
+  placeholder: "Compose an epic...",
+  theme: "snow", // or 'bubble',
+});
+
+
+function imageHandler() {
+  var range = this.quill.getSelection();
+  var value = prompt("please copy paste the image url here.");
+  if (value) {
+    this.quill.insertEmbed(
+      range.index,
+      "image",
+      value,
+      Quill.sources.USER
+    );
+  }
+}
+
+// Return the HTML content of the editor
+function getQuillHtml() {
+  return quill.root.innerHTML;
+}
+
+function saveblog() {
+  
+  let html = JSON.stringify(getQuillHtml());
+  let formtype  = $( "#editor-container" ).attr('data-formtype')
+let blogid  = $( "#editor-container" ).attr('data-blogid')
+  let doctorid
+  if(formtype == 'edit'){
+    doctorid =$( "#editor-container" ).attr('data-doctorid')
+  }else{
+     doctorid = new URLSearchParams(window.location.search).get('doctorid')
+
+  }
+
+  let data = {
+    displayname : $('#blogdisplayname').val(),
+    displayimg: $('#blogimageurl').val(),
+    videosrc : '0',
+    description : html,
+    doctorid ,
+    servicecategory: $('#servicecategory').val(),
+    type:0
+  }
+
+  var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+
+var requestOptions = {
+method: 'POST',
+headers: myHeaders,
+body: JSON.stringify(data),
+redirect: 'follow'
+};
+
+if(formtype == 'edit'){
+fetch(`https://admin.drvasuortho.com/editblog/${blogid}?formtype=edit`, requestOptions)
+.then(response => response.text())
+.then(result => {
+console.log(result)
+location.replace('/doctorprofile/'+doctorid)
+})
+.catch(error => console.log('error', error));
+}else{
+fetch("https://admin.drvasuortho.com/createblog", requestOptions)
+.then(response => response.text())
+.then(result => {
+console.log(result)
+location.replace('/doctorprofile/'+doctorid)
+})
+.catch(error => console.log('error', error));
+}
+}
+
+</script>
+</body>
+
+
+
+</html>

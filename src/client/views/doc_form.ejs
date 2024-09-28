@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Doctor form</title>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets1/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="../assets1/images/apple-touch-icon-57-precomposed.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="../assets1/images/apple-touch-icon-114-precomposed.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets1/images/apple-touch-icon-72-precomposed.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="../assets1/images/apple-touch-icon-144-precomposed.png">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="../assets1/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/fonts/webfont/cryptocoins.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../assets1/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css"rel="stylesheet"/>
+
+    <!-- CORE CSS TEMPLATE - END -->
+    
+
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+
+        <!-- SIDEBAR - START -->
+        <%-include("partials/sidebar.ejs") %>
+
+        <!--  SIDEBAR - END -->
+
+        <!-- START CONTENT -->
+        <section id="main-content" class="">
+            <div class="wrapper main-wrapper row">
+                <!-- MAIN CONTENT AREA STARTS -->
+
+                <div class="col-xs-12 ">
+                    <form  class="form submit-btn docform"	
+                    id="form"	
+                    action="/doctorform"	
+                    method="post"	
+                    onsubmit="submitform(event)"	
+                    enctype="multipart/form-data">
+                        <div class="row py-2 justify-content-between">
+                            <div class="col-6">
+                  <% if(doctorinfo == 'new'){ %>	
+                    <span class="head-name text-dark"><a href="/alldoctors"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;</a> Create Profile</span>
+
+                  <span hidden id="formtype" data-formtype="add"></span>	
+                  <% } else {%>	
+                    <span class="head-name text-dark"><a href="/doctorprofile/<%= doctorinfo[0]._id %>"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;</a>Edit Profile</span>
+
+                  <span hidden id="formtype" data-formtype="edit" data-doctorid="<%= doctorinfo[0]._id %>"></span>	
+                  
+                    <% } %>	
+                </div>
+                                
+  
+                            <div class="col-6 btn-div">
+                                <button type="submit" value="submit" class="btn submit_btn ">Submit</button>
+                            </div>
+                        </div>
+                        <div class="card form-card mb-4 pb-4">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Basic Informations</span>
+                            </div>
+                            <div class="row px-5">
+                                <div class="col-md-2">
+                                    <div class="img position-relative docformimg">
+                                      <% if(doctorinfo == "new"){ %>	
+                                        <img	
+                                        class="profile_img"
+                                          src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img1"	
+                                        />	
+                                        <%} else {%>	
+                                          <img	
+                                          class="profile_img"
+                                          src="../uploads/<%=doctorinfo[0].imgsrc %>"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img1"	
+                                        />	
+                                        <% } %>
+                                        <h6 class="position-absolute px-3">
+                                            <label for="profile" class="text-white">edit</label>
+                                            <input type="file" id="profile" name="Profile"  onchange="loadFile(event)"
+                                                hidden />
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="py-2 pl-3">
+                                        <input required type="text" class="form-control mb-30 doc_fname" id="doc_fname"
+                                            placeholder="First Name"   value="<%=doctorinfo[0].firstName %>" />
+                                        <div class="position-relative">
+                                            <input  type="text" class="form-control doc_date date"
+                                                placeholder="Birth Date" value="<%=doctorinfo[0].dob %>"/>
+                                            <span class="position-absolute cal-icon"><i
+                                                    class="fal fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-30 doc_lname" placeholder="Last Name"
+                                            required  value="<%=doctorinfo[0].lastName %>">
+                                        <!-- <input required type="text" class="form-control"> -->
+                                        <select class="form-control doc_gender" placeholder="Gender" required data-savedoption="<%=doctorinfo[0].gender %>">
+                                            <option value="" selected disabled>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%  if(doctorinfo[0].role == 0 || doctorinfo == 'new') { %>
+                        
+                        <div class="card form-card mb-4 pb-4">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Basic Informations</span>
+                            </div>
+                            <div class="row px-5">
+                                
+                                <div class="col-md-6">
+                                    <div class="img position-relative">
+                                      <% if(doctorinfo == "new"){ %>	
+                                        <!-- <img	
+                                        class="profile_img"
+                                          src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img2"	
+                                        />	 -->
+                                        <label for="pic_img2">Banner image</label>
+                                        <input required type="text" name="doctorbanner" class="form-control" id="pic_img2">
+                                        <label for="urlname">url name</label>
+                                        <input required type="text" name="urlname" class="form-control mb-2" id="urlname">
+                                        <% }else if(doctorinfo[0].role == 0) { %>
+	
+                                          <!-- <img	
+                                          class="profile_img"
+                                          src="../uploads/<%=doctorinfo[0].doctorbanner %>"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img2"	
+                                        />	
+                                        <h6 class="position-absolute px-3">
+                                            <label for="bannerprofile" class="text-white">edit</label>
+                                            <input required type="file" id="bannerprofile" name="bannerProfile" onchange="bannerloadFile(event)"
+                                                hidden />
+                                        </h6> -->
+                                        <label for="pic_img2">Banner image</label>
+                                        <input required type="text" name="doctorbanner" id="pic_img2" class="form-control mb -2" value="<%= doctorinfo[0].doctorbanner %>">
+                                        <label for="urlname">url name</label>
+                                        <input required type="text" name="urlname" class="form-control" id="urlname" value="<%= doctorinfo[0].urlname%>">
+                                        <% } %>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="img position-relative pl-3">
+                                      <% if(doctorinfo == "new"){ %>	
+                                        <!-- <img	
+                                        class="profile_img"
+                                          src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img3"	
+                                        />	 -->
+                                        <label for="pic_img3">Profile image</label>
+                                        <input required type="text" name="doctorpageProfile" class="form-control" id="pic_img3">
+                                          <% }else if(doctorinfo[0].role == 0) { %>
+                                           
+                                            <label for="pic_img3">Profile image</label>
+                                            <input required type="text" name="doctorpageProfile" id="pic_img3" class="form-control" value="<%= doctorinfo[0].doc_profile %>">
+                                        <% } %>
+                                    </div>
+                                </div>
+                       
+                            
+                            </div>
+                            <div class="row px-5">
+                                <div class="col-md-6">
+                                   
+                                      <% if(doctorinfo == "new"){ %>	
+                                        <!-- <img	
+                                        class="profile_img"
+                                          src="https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png"	
+                                          alt="Doctor-profile"	
+                                          id="pic_img3"	
+                                        />	 -->
+                                        <label for="doc_designation">Designation</label>
+                                        <input required type="text" name="doc_designation" class="form-control" id="doc_designation">
+                                          <% }else if(doctorinfo[0].role == 0) { %>
+                                           
+                                            <label for="doc_designation">Designation</label>
+                                            <input required type="text" name="doc_designation" id="doc_designation" class="form-control" value="<%= doctorinfo[0].designation %>">
+                                        <% } %>
+                                
+                                </div>
+<div class="col-md-6"> 
+                                   
+                                      <% if(doctorinfo == "new"){ %>	
+                                                                               <label for="doc_department">Department</label>
+                                        <select type="text" name="doc_department" class="form-control" id="doc_department"> 
+<option value="1" selected disabled > Select Department </option>
+<option value="1">Endocrinology </option>
+<option value="2">General Surgery</option>
+
+					</select>
+                                          <% }else if(doctorinfo[0].role == 0) { %>
+                                           
+                                           <label for="doc_department">Department</label>
+                                        <select type="text" name="doc_department" class="form-control doc_department" id="doc_department" data-savedoption="<%= doctorinfo[0].department %>"> 
+<option value="1">Endocrinology </option>
+<option value="2">General Surgery</option>
+					</select>
+                                        <% } %>
+                                
+                                </div>
+
+                            </div>
+                        </div>
+                    <% } %>
+                        <div class="card form-card mb-4 pb-2">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">About</span>
+                            </div>
+                            <div class="row px-5">
+                                <div class="col-md-12">
+                                    <div class="py-2">
+                                            <textarea style="height:250px;" name="doctorabout" id="doctorabout" class="w-100 form-control" placeholder="write your about"><%=doctorinfo[0].doctorabout %></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card form-card mb-4 pb-2">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Contact Information</span>
+                            </div>
+                            <div class="row px-5">
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_address" placeholder="Address"
+                                            required  value="<%=doctorinfo[0].address %>">
+                                        <input required type="text" class="form-control mb-2 doc_country" placeholder="Country"
+                                            required  value="<%=doctorinfo[0].country %>">
+                                        <input required type="text" maxlength="10" class="form-control doc_number" id="number"
+                                            placeholder="Phone Number" oninput="numberOnly();" required value="<%=doctorinfo[0].doctorMobile %>"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_state" placeholder="State"
+                                            required  value="<%=doctorinfo[0].state %>">
+                                        <input required type="text" class="form-control mb-2 doc_pincode" maxlength="6"
+                                            id="pincode" placeholder="Pincode" oninput="numberOnly();" required  value="<%=doctorinfo[0].pincode %>" />
+                                        <input required type="email" class="form-control doc_email" placeholder="Email" required  value="<%=doctorinfo[0].doctorEmail %>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                       
+                    
+                                    <% if(doctorinfo == 'new') { %>
+                                        <div class="card form-card mb-4 pb-2">
+                                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Education
+                                                    Informations</span></div>
+                            <div class="row px-5 education-details" id="edu_row">
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_institution"
+                                            placeholder="Institution" required>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control mb-2 doc_start_date date"
+                                                placeholder="Starting Date" >
+                                            <span class="position-absolute cal-icon1"><i
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                        <input required type="text" class="form-control doc_degree" placeholder="Degree"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_subject" placeholder="Subject"
+                                            required>
+                                        <div class="position-relative">
+                                            <input  type="text" class="form-control mb-2 doc_completion_date date"
+                                                placeholder="Completion Date" >
+                                            <span class="position-absolute cal-icon1"><i
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                        <input required type="text" class="form-control doc_grade" placeholder="Grade" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right px-5">
+                                <button type="button" class="edu_remove btn-outline-danger hidden btn btn-sm" id="edu_remove">Close</button></div>
+                            <div class="">
+                                <button type="button" class="btn btn ms-5 edu_btn apeend_btn">+ Add More
+                                    Institute</button>
+                            </div>
+                        </div>
+                            <% }else if(doctorinfo[0].role == 0) { %>
+                                <div class="card form-card mb-4 pb-2">
+                                    <div class="card-body px-5 text-dark"><span class="head-name p-0">Education
+                                            Informations</span></div>
+                              <% for(let i =0; i < doctorinfo[0].education.length; i++){%>
+                                <div class="row px-5 education-details" id="edu_row">
+                                  <div class="col-md-6">
+                                      <div class="py-2">
+                                          <input required type="text" class="form-control mb-2 doc_institution"
+                                              placeholder="Institution" required value="<%= doctorinfo[0].education[i].institution %>">
+                                          <div class="position-relative">
+                                              <input type="text" class="form-control mb-2 doc_start_date date"
+                                                  placeholder="Starting Date" value="<%= doctorinfo[0].education[i].startingDate %>">
+                                              <span class="position-absolute cal-icon1"><i
+                                                      class="fal fa-calendar "></i></span>
+                                          </div>
+                                          <input required type="text" class="form-control doc_degree" placeholder="Degree"
+                                              required value="<%= doctorinfo[0].education[i].degree %>">
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="py-2">
+                                          <input required type="text" class="form-control mb-2 doc_subject" placeholder="Subject"
+                                              required value="<%= doctorinfo[0].education[i].subject %>">
+                                          <div class="position-relative">
+                                              <input type="text" class="form-control mb-2 doc_completion_date date"
+                                                  placeholder="Completion Date" value="<%= doctorinfo[0].education[i].completedDate %>">
+                                              <span class="position-absolute cal-icon1"><i
+                                                      class="fal fa-calendar "></i></span>
+                                          </div>
+                                          <input required type="text" class="form-control doc_grade" placeholder="Grade" required value="<%= doctorinfo[0].education[i].grade %>">
+                                      </div>
+                                  </div>
+                              </div> 
+                            <% } %>
+                        <div class="text-right px-5">
+                            <button type="button" class="edu_remove btn-outline-danger hidden btn btn-sm" id="edu_remove">Close</button></div>
+                        
+                        <div class="">
+                            <button type="button" class="btn btn ms-5 edu_btn apeend_btn">+ Add More 
+                                Institute</button>
+                        </div>
+                    </div>
+                    
+                    <%  }%>
+
+                    <% if(doctorinfo == 'new') { %>
+                       <div class="card form-card mb-4 pb-2 docform_editor">
+<div class="card-body px-5 text-dark"><span class="head-name p-0">Extra Informations</span>
+
+                            <div id="editor-container"></div></div>
+                            </div>
+                        
+                        <% }else if(doctorinfo[0].role == 0) { %>
+                            <div class="card form-card mb-4 pb-2 docform_editor">
+<div class="card-body px-5 text-dark"><span class="head-name p-0">Extra Informations</span>
+
+                            <div id="editor-container" ><%= doctorinfo[0].extrainfo %> </div></div>
+                            </div>
+
+                    <%  }%>
+                            
+                        
+                                    <% if(doctorinfo == 'new') { %>
+                                        <div class="card form-card mb-4 pb-2">
+                                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Experience
+                                                    Informations</span></div>
+                            <div class="row px-5 experience-details" id="exp_row">
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_company_name"
+                                            placeholder="Company Name" required>
+                                        <input required type="text" class="form-control mb-2 doc_job" placeholder="Job Position"
+                                            required>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control doc_period_to_date date"
+                                                placeholder="Period To">
+                                            <span class="position-absolute cal-icon"><i
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_location" placeholder="Location"
+                                            required>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control doc_period_from_date date"
+                                                placeholder="Period From">
+                                            <span class="position-absolute cal-icon"><i
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right px-5">
+                                <button type="button" class="exp_remove hidden btn-outline-danger btn btn-sm" id="exp_remove">Close</button></div>
+                            <div class="">
+                                <button type="button" class="btn apeend_btn ms-5 exp_btn">+ Add More Experience</button>
+                            </div>
+                        </div>
+                            <% }else if(doctorinfo[0].role == 0 && user.role == 1) { %>
+                                <div class="card form-card mb-4 pb-2">
+                                    <div class="card-body px-5 text-dark"><span class="head-name p-0">Experience
+                                            Informations</span></div>
+                              <% for(let i =0; i < doctorinfo[0].experience.length; i++){%>
+                              <div class="row px-5 experience-details" id="exp_row">
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_company_name"
+                                            placeholder="Company Name" required value="<%= doctorinfo[0].experience[i].company %>"> 
+                                        <input required type="text" class="form-control mb-2 doc_job" placeholder="Job Position"
+                                            required value="<%= doctorinfo[0].experience[i].jobposition %>">
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control doc_period_to_date date"
+                                                placeholder="Period To" value="<%= doctorinfo[0].experience[i].periodto %>">
+                                            <span class="position-absolute cal-icon"><i
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="py-2">
+                                        <input required type="text" class="form-control mb-2 doc_location" placeholder="Location"
+                                            required value="<%= doctorinfo[0].experience[i].location %>">
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control doc_period_from_date date"
+                                                placeholder="Period From" value="<%= doctorinfo[0].experience[i].periodfrom %>">
+                                            <span class="position-absolute cal-icon"><i 
+                                                    class="fal fa-calendar "></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+
+                            <div class="text-right px-5">
+                                <button type="button" class="exp_remove hidden btn-outline-danger btn btn-sm" id="exp_remove">Close</button></div>
+                            <div class="">
+                                <button type="button" class="btn apeend_btn ms-5 exp_btn">+ Add More  Experience</button>
+                            </div>
+                        </div>
+                            <% } %>
+
+
+                            <% if(doctorinfo == 'new') { %>
+                                <div class="card form-card mb-4 pb-2">
+                                    <div class="card-body px-5 text-dark"><span class="head-name p-0">Services</span></div>
+                    <div class="row px-5 service-details" id="service_row">
+                        <div class="col-md-6">
+                            <div class="py-2">
+                                <input required type="text" list="search2" class="form-control mb-2 doc_company_name doc_service"
+                                    placeholder="Service Name" required>
+                                    <datalist id="search2">
+                                        <% for(let i=0; i < services.length; i++){ %>
+                                            <option value="<%= services[i].service_name %>" data-serviceimg="<%= services[i].service_url %>" data-service_displayurl="<%= services[i].service_displayurl %>" data-servicedesc="<%= services[i].service_desc %>" data-serviceid="<%= services[i]._id %>">Service</option> 
+                                      <%  } %>
+      
+                                                 </datalist>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-right px-5">
+                        <button type="button" class="exp_remove hidden btn-outline-danger btn btn-sm" id="service_remove">Close</button></div>
+                    <div class="">
+                        <button type="button" class="btn apeend_btn ms-5 service_btn">+ Add Service</button>
+                    </div>
+                </div>
+                    <% }else if(doctorinfo[0].role == 0 && user.role == 1) { %>
+                        <div class="card form-card mb-4 pb-2">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0"> Services </span></div>
+                      <% for(let i =0; i < doctorinfo[0].service.length; i++){%>
+                       
+                      <div class="row px-5 service-details" id="service_row">
+                       
+                           
+                        <div class="col-md-6">
+                            <div class="py-2">
+                                <input required type="text" list="search2" class="form-control mb-2 doc_company_name doc_service"
+                                placeholder="Service Name" required value="<%= doctorinfo[0].service[i].service_name  %>">
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <datalist id="search2">
+                        <% for(let i=0; i < services.length; i++){ %>
+                            <option value="<%= services[i].service_name %>" data-serviceimg="<%= services[i].service_url %>" data-service_displayurl="<%= services[i].service_displayurl %>" data-servicedesc="<%= services[i].service_desc %>" data-serviceid="<%= services[i]._id %>">Service</option> 
+                      <%  } %>
+
+                                 </datalist>
+                                 <div class="text-right px-5">
+                                    <button type="button" class="exp_remove btn-outline-danger btn btn-sm" id="service_remove">Close</button></div>
+                                <div class="">
+                                    <button type="button" class="btn apeend_btn ms-5 service_btn">+ Add Service</button>
+                                </div>
+                </div>
+                    <% } %>
+                            
+                        <% if(doctorinfo == 'new' || (doctorinfo[0].role == 0 && user.role == 1) ) { %>
+
+                        <div class="card form-card mb-4 pb-2">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Reviews</span></div>
+                            <div class="row px-5 " id="location_row">
+                                <div class="col-md-12 location_review">
+                                    <div style="display: none">
+                                        <input id="pac-input" class="controls" type="text"
+                                            placeholder="Enter a location" />
+                                    </div>
+                                    <div id="map"></div>
+                                    <div id="infowindow-content">
+                                        <span id="place-name" class="title"></span><br />
+                                        <strong>Place ID:</strong> <span id="place-id"></span><br />
+                                        <span id="place-address"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 py-4">
+                                  <input required type="text"  class="form-control" id="placeid" placeholder="place Id" value="<%= doctorinfo[0].placeid %>">
+                                </div>
+                            </div>
+                        </div>
+                
+                        <% } %>
+       
+
+                        <% if(doctorinfo == 'new') { %>
+
+                        <div class="card form-card mb-4 pb-2">
+                            <div class="card-body px-5 text-dark"><span class="head-name p-0">Settings</span></div>
+                            <div class="row px-5 password_settings" id="settings_row">
+                                <div class="col-md-6">
+                                    <div class="py-2 position-relative">
+                                        <input required type="password" class="form-control mb-2 password" placeholder="Password"
+                                            required>
+                                        <span class="eye-icon"><i class="fa fa-eye-slash toggle-password eye pass_eye" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="py-2 position-relative">
+                                        <input required  type="password" class="form-control mb-2 conf_password"
+                                            placeholder="Confirm Password" required>
+                                        <span class="eye-icon1"><i class="fa fa-eye-slash toggle-password eye pass_eye" aria-hidden="true"></i></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <% } %>
+                    </form>
+                </div>
+                <!-- MAIN CONTENT AREA ENDS -->
+            </div>
+        </section>
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <script src="../assets1/js/navbar.js"></script>
+ <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+
+    <!-- CORE TEMPLATE JS - START -->
+<script>
+function initdatepicker(){
+        // date picker
+        $(".date").datepicker({
+            changeYear: true,
+            changeMonth: true,
+            dateFormat: "dd-m-yy",
+            yearRange: "-100:+20",
+        })
+}
+
+</script> 
+
+    <script src="../assets1/js/scripts.js"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQzlSrA2UHL-QncIlFX_kvGTNf1c5OIOU&callback=initMap&libraries=places&v=weekly"
+        async></script>
+     <script>
+    $(function () {
+
+        let genderval = $('.doc_gender').attr('data-savedoption');
+        $('.doc_gender').val(genderval)
+
+        let departmentval = $('.doc_department').attr('data-savedoption');
+        $('.doc_department').val(departmentval)
+
+
+      $(".toggle-password").click(function () {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+
+        var inputField = $('#inputPassword');
+
+        // get the attribute value
+        var type = $(inputField).attr("type");
+        // now test it's value
+        if (type === 'password') {
+          $(inputField).attr("type", "text");
+        } else {
+          $(inputField).attr("type", "password");
+        }
+      });
+
+    });
+initdatepicker()
+
+
+        // This sample uses the Place Autocomplete widget to allow the user to search
+        // for and select a place. The sample then displays an info window containing
+        // the place ID and other information about the place that the user has
+        // selected.
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: -33.8688,
+                    lng: 151.2195
+                },
+                zoom: 13,
+            });
+            const input= document.getElementById("pac-input");
+            // Specify just the place data fields that you need.
+            const autocomplete = new google.maps.places.Autocomplete(input, {
+                fields: ["place_id", "geometry", "formatted_address", "name"],
+            });
+
+            autocomplete.bindTo("bounds", map);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            const infowindow = new google.maps.InfoWindow();
+            const infowindowContent = document.getElementById("infowindow-content");
+
+            infowindow.setContent(infowindowContent);
+
+            const marker = new google.maps.Marker({
+                map: map
+            });
+
+            marker.addListener("click", () => {
+                infowindow.open(map, marker);
+            });
+            autocomplete.addListener("place_changed", () => {
+                infowindow.close();
+
+                const place = autocomplete.getPlace();
+
+                if (!place.geometry || !place.geometry.location) {
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+
+                // Set the position of the marker using the place ID and location.
+                marker.setPlace({
+                    placeId: place.place_id,
+                    location: place.geometry.location,
+                });
+                marker.setVisible(true);
+                infowindowContent.children.namedItem("place-name").textContent = place.name;
+                infowindowContent.children.namedItem("place-id").textContent =
+                    place.place_id;
+                infowindowContent.children.namedItem("place-address").textContent =
+                    place.formatted_address;
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+  <script>
+      var decodeHTML = function (html) {
+var txt = document.createElement('textarea');
+txt.innerHTML = html;
+return txt.value;
+};
+let bloghtml =  $('#editor-container').html()
+var decoded = decodeHTML(bloghtml);
+let bhtml = jQuery.parseHTML( decoded )
+
+$( "#editor-container" ).html('')
+ $( "#editor-container" ).append( bhtml );
+// Initialize QUill editor
+var quill = new Quill("#editor-container", {
+  modules: {
+    imageResize: {
+      displaySize: true,
+    },
+    toolbar: {
+      container: [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["link", "image"],
+
+        [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", "medium", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [{ align: [] }],
+
+        ["clean"], // remove formatting button
+      ],
+      handlers: {
+        image: imageHandler,
+      },
+    },
+  },
+  placeholder: "Compose an epic...",
+  theme: "snow", // or 'bubble',
+});
+
+
+function imageHandler() {
+  var range = this.quill.getSelection();
+  var value = prompt("please copy paste the image url here.");
+  if (value) {
+    this.quill.insertEmbed(
+      range.index,
+      "image",
+      value,
+      Quill.sources.USER
+    );
+  }
+}
+
+// Return the HTML content of the editor
+function getQuillHtml() {
+  return quill.root.innerHTML;
+}
+
+</script>
+<script src="../assets1/js/script.js"></script>
+
+
+</body>
+
+
+<!-- Mirrored from medical-dash.netlify.app/html/hos-edit-doctor.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:28:50 GMT -->
+
+</html>

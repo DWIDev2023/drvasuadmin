@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords"
+        content=" " />
+    <meta name="description"
+        content=" " />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kaizen</title>
+    <link rel="canonical" href="https://kaizenoncology.com/" />
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="../css/jquery.datetimepicker.min.css">
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container flex">
+            <div id="logo">
+                <a href="index"><img src="../assets/images/logo.svg" alt=""></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team">Our Team</a></li>
+                    <li><a href="aboutcancer.html">About Cancer</a></li>
+                    <li><a href="blogs" class="active">Blog</a></li>
+                    <li><a href="contact">Contact Us</a></li>
+                </ul>
+            <div class="mobileMenuAddress">
+                    <h3>Our Locations</h3>
+                    <div class="mobileLocations">
+                        <h4>Care Hospitals - Hi-tech City </h4>
+                        <p>Old Mumbai Hwy, near Cyberabad Police Commissionerate, Jayabheri Pine Valley, HITEC City, Hyderabad, Telangana 500032</p>
+                        <h4>Care Hospitals - Banjara Hills</h4>
+                        <p>Rd Number 1, Prem Nagar,<br> Banjara Hills, Hyderabad, Telangana 500034</p>
+                        <h4>Care Hospitals - Nampally</h4>
+                        <p>Exhibition Grounds, Road, Nampally, Hyderabad, Telangana 500001</p>
+                        <h4>Mahavir Hospitals - Masab Tank</h4>
+                        <p class="mb-0">10-1-1, Utkoor - Mogdumpur Rd, AC Guards, Lakdikapul, Hyderabad, Telangana 500004</p>
+                    </div>
+                </div>
+            </nav>
+            <div class="nav-icon"><span></span><span></span><span></span></div>
+            <div class="overlay"></div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="bannerSlider doctorsBanner">
+            <div class="bannerImage" style="background-image: url('../assets/images/blog.jpg');">
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href=".index">Home</a></li>
+                <li><a href="blogs">Blog</a></li>
+                <li class="active">Blog View</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="blogMain space40"> 
+            <div class="blogSection pt-0">
+                <div class="blogLeft">
+                    <div class="blogDetails">
+                        <h5>TOPIC OF BLOG</h5>
+                        <ul>
+                            <li>
+                                <img src="../assets/images/calenderIcon.svg" alt="">
+                              
+<% let a = bloginfo[0].createdAt + "" %>
+                        <span><%= a.slice(4,15) %></span>
+
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="../assets/images/userIcon.svg" alt="">
+                                    <span> <%= doctorinfo[0].firstName %> <%= doctorinfo[0].lastName %></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="../assets/images/commentIcon.svg" alt="">
+                                    <span> <%= comments.length %> comment</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="blogData">
+                        <img src="../uploads/<%= bloginfo[0].displayimg %>" alt="">
+              
+                        <p id="blogdesc" ><%=  blogdesc %> </p>
+
+                    </div>
+                    <div class="postextralinks">
+                        <div class="sharePost">
+                            <h5>SHARE THE POST</h5>
+                            <ul>
+                                <li><a href=""><img src="../assets/images/blog-facebook.svg" alt=""></a></li>
+                                <li><a href=""><img src="../assets/images/blog-instagram.svg" alt=""></a></li>
+                                <li><a href=""><img src="../assets/images/blog-linkedin.svg" alt=""></a></li>
+                                <li><a href=""><img src="../assets/images/blog-twitter.svg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="aboutAuthor">
+                            <h5>ABOUT AUTHOR</h5>
+                            <div class="authorsInfo">
+                                <span><img src="/uploads/<%= doctorinfo[0].imgsrc %>" alt=""></span>
+                                <div>
+                                    <h6><%= doctorinfo[0].firstName %> <%= doctorinfo[0].lastName %></h6>
+                                    <p><%=   doctorinfo[0].doctorabout   %>           </p>
+                                </div>
+                            </div>
+                        </div>
+<div>
+<h5> comments </h5>
+<% for(let i=0; i < comments.length; i++){ %>
+<ul style="margin-bottom: 16px">
+<li>name : <%= comments[i].name %></li>
+<li>comment : <%= comments[i].comment %></li>
+</ul>
+<% } %>
+</div>
+                        <form class="postForm" action="/comment?blogid=<%= bloginfo[0]._id %>" method="post">
+                            <h5>Submit a Comment</h5>
+                            <ul>
+                                <li>
+                                    <h6>Name:</h6>
+                                    <input placeholder="Name" type="text" name="name">
+                                </li>
+                                <li>
+                                    <h6>Your Email Address:</h6>
+                                    <input placeholder="Your Email Address" type="text" name="email">
+                                </li>
+                                <li>
+                                    <h6>Comment:</h6>
+                                    <textarea cols="10" rows="6" placeholder="Comment" name="comment"></textarea>
+                                </li>
+                            </ul>
+                            <button class="button">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="blogRight">
+                    <form class="postContactForm" action="/submitcontact" method="post">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>
+                                <input type="text" name="firstname" placeholder="Name">
+                            </li>
+                            <li>
+                                <input type="text" name="phonenumber" placeholder="Phone">
+                            </li>
+                            <li>
+                                <input id="dateTimeCalendar" type="text" placeholder="Date and Time" name="DateTime">
+                            </li>
+                        </ul>
+                        <button class="button">Submit</button>
+                    </form>
+                    <div class="latestPost">
+                        <h4>Latest Blogs</h4>
+                        <ul>
+ <% for(let i=0; i< blogs.length; i++) { %>
+                    <% if(blogs[i].type == 0){%>
+
+                            <li>
+                                <a href="/viewblog?blogid=<%=blogs[i]._id %>&page=1">
+                                    <img src="../uploads/<%= blogs[i].displayimg %>" alt="">
+                                    <span class="latestBlogContent">
+                                        <span class="title"><%= blogs[i].displayname %></span>
+<% let a = blogs[i].createdAt + "" %>
+
+                                        <small><img src="../assets/images/calenderIcon.svg" alt=""><%= a.slice(4,15) %></small>
+                                    </span>
+                                </a>
+                            </li>
+                <% } }%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="getinTouch" style="background-image: url(../assets/images/getInTouchBanner.png);">
+        <div class="container">
+            <div>
+                <p>Do you need emergency Medical care?</p>
+                <h2>Do you Have HealthProblems?</h2>
+            </div>
+            <a href="appointment" class="button">Get an Appointment</a>
+        </div>
+
+    </div>
+
+    <div class="extralink">
+        <ul>
+            <li><a href="appointment"><span><img src="../assets/images/phone-white.svg" alt=""></span><small>Book An
+                        &nbsp;</small> Appointment</a></li>
+            <li><a href="https://wa.me/919154143858" target="_blank"><span><img src="../assets/images/whatsappIcon2.svg" alt=""></span>Enquiry Now</a>
+            <li><a href="team"><span><img src="../assets/images/findDoctor.svg" alt=""></span>Find a Doctor</a></li>
+            <li><a href="contact#locationSection"><span><img src="../assets/images/locationIcon2.svg" alt=""></span>Location</a>
+            </li>
+        </ul>
+    </div>
+
+    <footer class="space40">
+        <div class="container">
+            <div class="footerLogo"><a href="index"><img src="../assets/images/logo.svg" alt=""></a></div>
+            <div class="footerRight">
+                <div class="footerlinks">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="index">Home</a></li>
+                    <li><a href="about">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="aboutcancer.html">About Cancer</a></li>
+                        <li><a href="blogs">Blog</a></li>
+                        <li><a href="contact">Contacts Us</a></li>
+                    </ul>
+                </div>
+                <div class="footerlinks">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><a href="mailto:Support@kaizenoncology.com">Support@kaizenoncology.com</a></li>
+                        <li><a href="tel:9154143858">+91 915 414 3858/59/ 60</a></li>
+                    </ul>
+                </div>
+                <div class="footerlinks addressBlock">
+                    <h4>ADDRESS</h4>
+                    <p>Hi-tech City | Banjara Hills | Nampally | Masab Tank</p>
+                    <div class="socialMedia">
+                        <label class="socialLabel">Follow Us :</label>
+                        <ul>
+                            <li><a target="_blank" href="https://www.youtube.com/channel/UCo_QHdCV1JFp_vQPYLMqY2A"><img
+                                        src="../assets/images/youtubeIcon.svg" alt=""></a></li>
+                            <li><a target="_blank"
+                                    href="https://www.facebook.com/kaizenoncologynetwork/?ref=pages_you_manage"><img
+                                        src="../assets/images/facebookIcon.svg" alt=""></a></li>
+                            <li><a target="_blank" href="https://twitter.com/KaizenOncology"><img
+                                        src="../assets/images/twitterIcon.svg" alt=""></a></li>
+                            <li><a target="_blank"
+                                    href="https://www.linkedin.com/company/kaizen-oncology/?viewAsMember=true"><img
+                                        src="../assets/images/linkedinIcon.svg" alt=""></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/kaizenoncologynetwork/"><img
+                                        src="../assets/images/instgaramIcon.svg" alt=""></a></li>
+                            <li><a target="_blank" href="https://wa.me/919154143858"><img
+                                src="../assets/images/whatsapp.svg" alt=""></a></li>
+                             <!-- <!--<li><a target="_blank" href="https://blog.kaizenoncology.com/"><img
+                                        src="../assets/images/blogIcon.svg" alt=""></a></li>--> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyRights">
+        <p>Copyright <span>©</span> <span id="yearUpdate">2022</span> kaizen rights reserved.</p>
+    </div>
+    <a href="javascript:void(0)" class="back-to-top" onclick="$('html,body').animate({scrollTop:0},500);"></a>
+    <span class="extraMobileSpace"></span>
+    
+    <script src="js/global.js"></script>
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        //======== Date and time
+        $('#dateTimeCalendar').datetimepicker();
+    </script>
+        <script>
+            var decodeHTML = function (html) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+    };
+    
+    let bloghtml =  $('#blogdesc').html()
+    var decoded = decodeHTML(bloghtml);
+    
+    var $geek = $( "#blogdesc" ),
+              html = jQuery.parseHTML( decoded ),
+              nodeNames = [];
+            $geek.html( html );
+    // $('#blogdesc').after(bloghtml)
+    
+    
+        </script>
+</body>
+
+</html>

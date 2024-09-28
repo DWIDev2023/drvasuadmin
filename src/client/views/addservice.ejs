@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from medical-dash.netlify.app/html/ui-labels-badges.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 09:29:23 GMT -->
+  <!-- Added by HTTrack -->
+  <meta
+    http-equiv="content-type"
+    content="text/html;charset=UTF-8"
+  /><!-- /Added by HTTrack -->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets1/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- For iPhone -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="../assets1/images/apple-touch-icon-57-precomposed.png"
+    />
+    <!-- For iPhone 4 Retina display -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="114x114"
+      href="../assets1/images/apple-touch-icon-114-precomposed.png"
+    />
+    <!-- For iPad -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="72x72"
+      href="../assets1/images/apple-touch-icon-72-precomposed.png"
+    />
+    <!-- For iPad Retina display -->
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="144x144"
+      href="../assets1/images/apple-touch-icon-144-precomposed.png"
+    />
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link
+      href="../assets1/plugins/pace/pace-theme-flash.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="../assets1/plugins/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/plugins/bootstrap/css/bootstrap-theme.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/fonts/font-awesome/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/css/animate.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="../assets1/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../assets1/css/responsive.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+
+    <!-- CORE CSS TEMPLATE - END -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css"rel="stylesheet"/>
+
+  </head>
+  <!-- END HEAD -->
+
+  <!-- BEGIN BODY -->
+
+  <body class=" ">
+    <!-- START TOPBAR -->
+    <%-include("partials/navbar.ejs") %>
+
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+      <!-- SIDEBAR - START -->
+      <%-include("partials/sidebar.ejs") %>
+
+      <!--  SIDEBAR - END -->
+      <!-- START CONTENT -->
+      <section id="main-content" class=" " data-userrole="<%= user.role %>">
+        <div class="wrapper main-wrapper row">
+          <!-- MAIN CONTENT AREA STARTS -->
+
+          <section class="box">
+            <% if(formtype == 'add'){ %>
+            <form action="/addservice" method="post">
+              <div
+                class="row justify-content-between"
+                style="padding-top: 20px;"
+              >
+                <div class="col-md-6">
+                  <span class="head-name pl-3 text-dark">Service</span>
+                </div>
+                <div class="col-md-6 btn-div">
+                  <button
+                    type="submit"
+                    value="submit"
+                    class="btn link1 submit-btn ql-formats"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div class="col-xs-12" style="padding-bottom: 20px;">
+                <div
+                  class="row py-2 justify-content-between"
+                  style="padding: 10px 20px 10px 20px;"
+                >
+                  <div class="row col-md-4">
+                    <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service Name</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_name"
+                        class="form-control"
+                        id="servicedisplayname"
+                        placeholder="service Name here"
+                        value=""
+                      />
+                    </div>
+                    <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_displayurl"
+                        class="form-control"
+                        id="serviceurl"
+                        placeholder="service Url"
+                        value=""
+                      />
+                    </div>
+                   <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service title</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_title"
+                        class="form-control"
+                        id="servicetitle"
+                        placeholder="service title"
+                        value=""
+                      />
+                    </div>
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service description</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_description"
+                        class="form-control"
+                        id="servicedescription"
+                        placeholder="service description"
+                        value=""
+                      />
+                    </div>
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service keywords</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_keywords"
+                        class="form-control"
+                        id="servicekeywords"
+                        placeholder="service keywords"
+                        value=""
+                      />
+                    </div>
+
+
+
+
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <label for="servicecategory">Service Category</label>
+                      <select
+                        type="text"
+                        name="servicecategory"
+                        class="form-control"
+                        id="servicecategory"
+                        required
+                      >
+                        <option value="0" selected disabled>
+                          Select Category
+                        </option>
+                        <option value="1"> Robotic Knee Replacement </option>
+                        <option value="2"> Joint Replacement </option>
+                        <option value="3"> Trauma Surgeries </option>
+                        <option value="4"> Sports Medicine </option>
+                        <option value="5"> General orthopedics </option>
+                        <option value="6"> Others </option>
+                      </select>
+                    </div>
+                    <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Image Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_url"
+                        class="form-control"
+                        id="serviceimageurl"
+                        placeholder="image url here"
+                        value=""
+                      />
+                    </div>
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Banner Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="serviceBanner_url"
+                        class="form-control"
+                        id="serviceBanner_url"
+                        placeholder="Banner image url here"
+                        value=""
+                      />
+                    </div>
+
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Overview</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="editor-container"></div>
+                  </div>                        
+                  <!-- <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Causes</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="causes-container"></div>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">symptoms</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="symptoms-container"></div>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Treatment and Management</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="treatments-container"></div>
+                  </div> -->
+                </div>
+              </div>
+            </form>
+            <% } else {%>
+            <form
+              action="/editservice/<%= service[0]._id %>?formtype=edit"
+              method="post"
+            >
+              <div
+                class="row justify-content-between"
+                style="padding-top: 20px;"
+              >
+                <div class="col-md-6">
+                  <span class="head-name pl-3 text-dark">Service</span>
+                </div>
+                <div class="col-md-6 btn-div">
+                  <button
+                    type="submit"
+                    value="submit"
+                    class="btn link1 submit-btn ql-formats"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div class="col-xs-12" style="padding-bottom: 20px;">
+                <div
+                  class="row py-2 justify-content-between"
+                  style="padding: 10px 20px 10px 20px;"
+                >
+                  <div class="row col-md-4">
+                    <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service Name</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_name"
+                        class="form-control"
+                        id="servicedisplayname"
+                        placeholder="service Name here"
+                        value="<%= service[0].service_name %>"
+                      />
+                    </div>
+<div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_displayurl"
+                        class="form-control"
+                        id="serviceurl"
+                        placeholder="service Url here"
+                        value="<%= service[0].service_displayurl %>"
+                      />
+                    </div>
+
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <label for="servicecategory">Service Category</label>
+                      <select
+                        type="text"
+                        name="servicecategory"
+                        class="form-control"
+                        id="servicecategory"
+                        required
+                        data-savedoption="<%= service[0].servicecategory %>"
+                      >
+                        <option value="0" selected disabled>
+                          Select Category
+                        </option>
+                        <option value="1"> Robotic Knee Replacement </option>
+                        <option value="2"> Joint Replacement </option>
+                        <option value="3"> Trauma Surgeries </option>
+                        <option value="4"> Sports Medicine </option>
+                        <option value="5"> General orthopedics </option>
+                        <option value="6"> Others </option>
+                      </select>
+                    </div>
+                    <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Image Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_url"
+                        class="form-control"
+                        id="serviceimageurl"
+                        placeholder="image url here"
+                        value="<%= service[0].service_url %>"
+                      />
+                    </div>
+                   <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service title</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;"> 
+                      <input
+                        type="text"
+                        name="service_title"
+                        class="form-control"
+                        id="servicetitle"
+                        placeholder="service title"
+                        value="<%= service[0].service_title %>"
+                      />
+                    </div>
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service description</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_description"
+                        class="form-control"
+                        id="servicedescription"
+                        placeholder="service description"
+                        value="<%= service[0].service_description %>"
+                      />
+                    </div>
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Service keywords</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="service_keywords"
+                        class="form-control"
+                        id="servicekeywords"
+                        placeholder="service keywords"
+                        value="<%= service[0].service_keywords %>"
+                      />
+                    </div>
+
+ <div class="col-md-12" style="padding: 0 0 10px 0;">
+                      <span class="blog-name">Banner Url</span>
+                    </div>
+                    <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+                      <input
+                        type="text"
+                        name="serviceBanner_url"
+                        class="form-control"
+                        id="serviceBanner_url"
+                        placeholder="Banner image url here"
+                        value="<%= service[0].serviceBanner_url %>"
+                      />
+                    </div>
+
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Overview</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="editor-container"><%= service[0].service_desc %></div>
+                  </div>
+                  <!-- <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Causes</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+  <div id="causes-container"><%= service[0].service_causes %></div>
+
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">symptoms</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="symptoms-container"><%= service[0].service_symptoms %></div>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px;">
+                    <span class="blog-name">Treatment and Management</span>
+                  </div>
+                  <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
+<div id="treatments-container"><%= service[0].service_treatment %></div>
+                  </div> -->
+                </div>
+              </div>
+            </form>
+            <% } %>
+          </section>
+
+          <!-- MAIN CONTENT AREA ENDS -->
+        </div>
+      </section>
+
+      <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="../assets1/js/jquery.min.js"></script>
+    <script src="../assets1/js/jquery.easing.min.js"></script>
+    <script src="../assets1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets1/plugins/pace/pace.min.js"></script>
+    <script src="../assets1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../assets1/plugins/viewport/viewportchecker.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+
+    <script>
+      window.jQuery ||
+        document.write('<script src="../assets1/js/jquery.min.js"><\/script>');
+      let departmentval = $("#servicecategory").attr("data-savedoption");
+      $("#servicecategory").val(departmentval);
+    </script>
+    <!-- CORE JS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <script src="../assets1/js/navbar.js"></script>
+    <!-- CORE TEMPLATE JS - START -->
+    <!-- <script src="../assets1/js/script.js"></script> -->
+    <!-- <script src="../assets1/js/scripts.js"></script> -->
+    <!-- END CORE TEMPLATE JS - END -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+<script>
+      var decodeHTML = function (html) {
+var txt = document.createElement('textarea');
+txt.innerHTML = html;
+return txt.value;
+};
+let bloghtml =  $('#editor-container').html()
+var decoded = decodeHTML(bloghtml);
+let bhtml = jQuery.parseHTML( decoded )
+$( "#editor-container" ).html('')
+ $( "#editor-container" ).append( bhtml );
+
+// let causesbloghtml =  $('#causes-container').html()
+// var causesdecoded = decodeHTML(causesbloghtml);
+// let causesbhtml = jQuery.parseHTML( causesdecoded )
+// $( "#causes-container" ).html('')
+//  $( "#causes-container" ).append(causesbhtml);
+
+// let symptomsbloghtml =  $('#symptoms-container').html()
+// var symptomsdecoded = decodeHTML(symptomsbloghtml);
+// let symptomsbhtml = jQuery.parseHTML( symptomsdecoded )
+// $( "#symptoms-container" ).html('')
+//  $( "#symptoms-container" ).append(symptomsbhtml);
+
+
+// let treatmentbloghtml =  $('#treatments-container').html()
+// var treatmentdecoded = decodeHTML(treatmentbloghtml);
+// let treatmentbhtml = jQuery.parseHTML( treatmentdecoded )
+// $( "#treatments-container" ).html('')
+//  $( "#treatments-container" ).append(treatmentbhtml);
+
+
+
+
+// Initialize QUill editor
+var quill = new Quill("#editor-container", {
+  modules: {
+    imageResize: {
+      displaySize: true,
+    },
+    toolbar: {
+      container: [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["link", "image"],
+
+        [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", "medium", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [{ align: [] }],
+
+        ["clean"], // remove formatting button
+      ],
+      handlers: {
+        image: imageHandler,
+      },
+    },
+  },
+  placeholder: "Compose an epic...",
+  theme: "snow", // or 'bubble',
+});
+
+
+function imageHandler() {
+  var range = this.quill.getSelection();
+  var value = prompt("please copy paste the image url here.");
+  if (value) {
+    this.quill.insertEmbed(
+      range.index,
+      "image",
+      value,
+      Quill.sources.USER
+    );
+  }
+}
+// Initialize QUill editor
+// var causesquill = new Quill("#causes-container", {
+//   modules: {
+//     imageResize: {
+//       displaySize: true,
+//     },
+//     toolbar: {
+//       container: [
+//         ["bold", "italic", "underline", "strike"], // toggled buttons
+//         ["blockquote", "code-block"],
+//         ["link", "image"],
+
+//         [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+//         [{ list: "ordered" }, { list: "bullet" }],
+//         [{ script: "sub" }, { script: "super" }], // superscript/subscript
+//         [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+//         [{ direction: "rtl" }], // text direction
+
+//         [{ size: ["small", "medium", "huge"] }], // custom dropdown
+//         [{ header: [1, 2, 3, 4, 5, 6] }],
+
+//         [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+//         [{ font: [] }],
+//         [{ align: [] }],
+
+//         ["clean"], // remove formatting button
+//       ],
+//       handlers: {
+//         image: imageHandler,
+//       },
+//     },
+//   },
+//   placeholder: "Compose an epic...",
+//   theme: "snow", // or 'bubble',
+// });
+
+// var symptomsquill = new Quill("#symptoms-container", {
+//   modules: {
+//     imageResize: {
+//       displaySize: true,
+//     },
+//     toolbar: {
+//       container: [
+//         ["bold", "italic", "underline", "strike"], // toggled buttons
+//         ["blockquote", "code-block"],
+//         ["link", "image"],
+
+//         [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+//         [{ list: "ordered" }, { list: "bullet" }],
+//         [{ script: "sub" }, { script: "super" }], // superscript/subscript
+//         [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+//         [{ direction: "rtl" }], // text direction
+
+//         [{ size: ["small", "medium", "huge"] }], // custom dropdown
+//         [{ header: [1, 2, 3, 4, 5, 6] }],
+
+//         [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+//         [{ font: [] }],
+//         [{ align: [] }],
+
+//         ["clean"], // remove formatting button
+//       ],
+//       handlers: {
+//         image: imageHandler,
+//       },
+//     },
+//   },
+//   placeholder: "Compose an epic...",
+//   theme: "snow", // or 'bubble',
+// });
+
+// var treatmentsquill = new Quill("#treatments-container", {
+//   modules: {
+//     imageResize: {
+//       displaySize: true,
+//     },
+//     toolbar: {
+//       container: [
+//         ["bold", "italic", "underline", "strike"], // toggled buttons
+//         ["blockquote", "code-block"],
+//         ["link", "image"],
+
+//         [{ header: 1 }, { header: 2 }, { header: 3 }], // custom button values
+//         [{ list: "ordered" }, { list: "bullet" }],
+//         [{ script: "sub" }, { script: "super" }], // superscript/subscript
+//         [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+//         [{ direction: "rtl" }], // text direction
+
+//         [{ size: ["small", "medium", "huge"] }], // custom dropdown
+//         [{ header: [1, 2, 3, 4, 5, 6] }],
+
+//         [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+//         [{ font: [] }],
+//         [{ align: [] }],
+
+//         ["clean"], // remove formatting button
+//       ],
+//       handlers: {
+//         image: imageHandler,
+//       },
+//     },
+//   },
+//   placeholder: "Compose an epic...",
+//   theme: "snow", // or 'bubble',
+// });
+
+
+
+
+
+
+// Return the HTML content of the editor
+function getQuillHtml() {
+  return quill.root.innerHTML;
+}
+function getcausesQuillHtml() {
+  return causesquill.root.innerHTML;
+}
+function getsymptomsQuillHtml() {
+  return symptomsquill.root.innerHTML;
+}
+
+function gettreatmentsQuillHtml() {
+  return treatmentsquill.root.innerHTML;
+}
+
+
+
+$('form').on('submit', function(e) {
+  e.preventDefault(); // Prevent the form from submitting through the browser
+
+  var form = e.target; // Get the form element from the event target
+  var apiUrl = form.getAttribute('action'); // Retrieve the action attribute
+
+  var serviceData = {
+    service_name: $('#servicedisplayname').val(),
+    servicecategory: $('#servicecategory').val(),
+    service_url: $('#serviceimageurl').val(),
+    service_displayurl: $('#serviceurl').val(),
+    service_title: $('#servicetitle').val(),
+    service_description: $('#servicedescription').val(),
+    service_keywords: $('#servicekeywords').val(),
+    serviceBanner_url: $('#serviceBanner_url').val(),
+    service_desc: getQuillHtml(),
+    // service_causes: getcausesQuillHtml(),
+    // service_symptoms: getsymptomsQuillHtml(),
+    // service_treatment: gettreatmentsQuillHtml()  
+  };
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(serviceData)
+  })
+.then(response => response.text())
+.then(result => {
+console.log(result)
+location.replace('/services')
+
+})
+  .catch(error => {
+    console.error('Error:', error);
+    // Handle errors here
+  });
+})
+</script>
+
+  </body>
+</html>

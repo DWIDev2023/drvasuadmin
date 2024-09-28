@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
+    <script src="js/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+       <div class="container">
+
+        <div class="appointmentmain space40">
+
+            <h2>
+               <a href="/" style="padding-right : 20px"> < Back </a> PATIENTS INFORMATION
+            </h2>
+            <form action="/submitappointment?id=<%= appointmentinfo[0]._id %>" method="post" class="appointmentForm" autocomplete="off">
+<% if( appointmentinfo[0] ){ %>
+ <ul>
+                    <li>
+                        <h5>Patient name:</h5>
+                        <input required type="text" name="patientName" placeholder="Patient name" value="<%= appointmentinfo[0].patientName %>">
+                    </li>
+                    <li>
+                        <h5>Mobile number:</h5>
+                        <input required type="text" name="patientMobile" placeholder="Mobile number" value="<%= appointmentinfo[0].patientMobile %>">
+                    </li>
+                    <li>
+                        <div class="genderAge">
+                            <div class="genderDiv">
+                                <h5>Gender:</h5>
+                                <div class="gender">
+                                    <input class="ml-0" type="radio" id="male" name="patientGender" value="male" <%= appointmentinfo[0].patientGender == 'male' ? "checked" : '' %>>
+                                    <label for="male">Male</label> &nbsp;&nbsp;
+                                    <input type="radio" id="female" name="patientGender" value="female"  <%= appointmentinfo[0].patientGender == 'female' ? "checked" : '' %>>
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                            <div class="genderDiv ageDiv">
+                                <h5>Age:</h5>
+                                <input type="text" placeholder="Age" name="patientAge" value="<%= appointmentinfo[0].patientAge %>">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h5>Email address:</h5>
+                        <input type="text" placeholder="Email address" name="patientEmail" value="<%= appointmentinfo[0].patientEmail %>">
+                    </li>
+                    <li>
+                        <h5>Appointment Date:</h5>
+                        <div class="dateTime">
+                            <input type="text" id="inputDate" placeholder="Appointment Date" name="appointmentDate" value="<%= appointmentinfo[0].appointmentDate %>">
+                            <img src="assets/images/date.svg" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <h5>Appointment Time:</h5>
+                        <div class="dateTime">
+                            <input type="text" id="timepicker" placeholder="Appointment Time" name="appointmentTime" value="<%= appointmentinfo[0].appointmentTime %>">
+                            <img src="assets/images/time.svg" alt="">
+                        </div>
+                        <div class="errordatetime"></div>
+                    </li>
+                    <li>
+                                                <div class="searchFileds">
+                            <div class="searchItem">
+                              
+                                <select type="text" placeholder="Search by department" id="appointmentdepartment" class="appointmentdepartment" data-savedoption="<%= appointmentinfo[0].preferredDepartment %>" name="preferredDepartment" value="<%= appointmentinfo[0].preferredDepartment %>"><option value="">-Select Speciality-</option><option value="1"> Joint Replacement</option><option value="2"> General Orthopedics </option><option value="3"> Sports Medicine </option><option value="4"> Robotic Knee Replacement </option>                                 </select>
+                            </div>
+                            <div class="searchItem">
+                                
+                                <select type="text" placeholder="Search by preferred doctors" name="preferredDoctor" class="preferredDoctor" data-savedoption="<%= appointmentinfo[0].doctorid %>">
+         <option value="" selected="true" disabled="disabled"> Search by doctor</option> 
+
+ 
+                                    <% for(let i=0; i < doctors.length; i++){ %>
+<% if(doctors[i].role == 0  && doctors[i].visibility == true) {%>
+                                        <option value="<%= doctors[i]._id %>" class="doc_option" data-department=<%= doctors[i].department %> > <%= doctors[i].firstName %> <%= doctors[i].lastName %></option> 
+                                  <%  }} %>
+				</select>
+
+                            </div> 
+<div>                                <select type="text" placeholder="Status" name="appointmentstatus" class="appointmentstatus" data-savedoption="<%= appointmentinfo[0].appointmentstatus%>" value="<%= appointmentinfo[0].appointmentstatus%>">
+                              <option value="">-Select status-</option><option value="true"> completed</option><option value="false"> pending </option> </select>
+                        <textarea type="text" placeholder="Notes" name="notes" rows="10"><%= appointmentinfo[0].notes %></textarea>	
+</div>
+
+                        </div>
+                    </li>
+                </ul> 
+<% } else {%>
+ <ul>
+                    <li>
+                        <h5>Patient name:</h5>
+                        <input required type="text" name="patientName" placeholder="Patient name" >
+                    </li>
+                    <li>
+                        <h5>Mobile number:</h5>
+                        <input required type="number" name="patientMobile" placeholder="Mobile number" >
+                    </li>
+                    <li>
+                        <div class="genderAge">
+                            <div class="genderDiv">
+                                <h5>Gender:</h5>
+                                <div class="gender">
+                                    <input class="ml-0" type="radio" id="male" name="patientGender" value="male" >
+                                    <label for="male">Male</label> &nbsp;&nbsp;
+                                    <input type="radio" id="female" name="patientGender" value="female" >
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                            <div class="genderDiv ageDiv">
+                                <h5>Age:</h5>
+                                <input type="number" placeholder="Age" name="patientAge" >
+                            </div>
+                        </div>
+                    </li> 
+                    <li>
+                        <h5>Email address:</h5>
+                        <input type="text" placeholder="Email address" name="patientEmail" 
+                    </li>
+                    <li>
+                        <h5>Appointment Date:</h5>
+                        <div class="dateTime">
+                            <input type="text" id="inputDate" placeholder="Appointment Date" name="appointmentDate" >
+                            <img src="assets/images/date.svg" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <h5>Appointment Time:</h5>
+                        <div class="dateTime">
+                            <input type="text" id="timepicker" placeholder="Appointment Time" name="appointmentTime" >
+                            <img src="assets/images/time.svg" alt="">
+                        </div>
+                        <div class="errordatetime"></div>
+                    </li>
+                                        <li>
+                        <h4>Find and select your preffered doctor and department</h4>
+                        <h5>Search by preferred Doctors and department</h5>
+                        <div class="searchFileds">
+                            <div class="searchItem">
+                              
+                                <select type="text" placeholder="Search by department" id="appointmentdepartment" class="appointmentdepartment" name="preferredDepartment" >
+                                 <option value="">-Select Speciality-</option><option value="1"> Joint Replacement</option><option value="2"> General Orthopedics </option><option value="3"> Sports Medicine </option><option value="4"> Robotic Knee Replacement </option>                                 </select>
+                            </div>
+                            <div class="searchItem">
+                                
+                                <select type="text" placeholder="Search by preferred doctors" name="preferredDoctor" class="preferredDoctor">
+         <option value="" selected="true" disabled="disabled"> Search by doctor</option> 
+
+ 
+                                    <% for(let i=0; i < doctors.length; i++){ %>
+<% if(doctors[i].role == 0  && doctors[i].visibility == true) {%>
+                                        <option value="<%= doctors[i]._id %>" class="doc_option" data-department=<%= doctors[i].department %> > <%= doctors[i].firstName %> <%= doctors[i].lastName %></option> 
+                                  <%  }} %>
+				</select>
+                              
+                            </div> 
+                        </div>
+                    </li>
+                </ul> 
+
+<% }%>
+               <button class="button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="javascript:void(0)" class="back-to-top" onclick="$('html,body').animate({scrollTop:0},500);"> </a>
+    <span class="extraMobileSpace"></span>
+    <script src="js/moment.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <script>
+        //======== Date and Time
+        var d = new Date();
+var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+var nstrDate = d.getFullYear() + "-" + (d.getMonth()+2) + "-" + d.getDate();
+        $('#inputDate').datetimepicker({
+            timepicker: false,
+            format: 'd/m/Y',
+            formatDate: 'Y/m/d',
+            minDate:strDate,
+            maxDate: nstrDate,
+onClose:function(){
+let date =  $('#inputDate').val();
+if(date != ''){
+     $('#timepicker').datetimepicker({ 
+	datepicker:false,
+	step:30,
+    format:'h:i a',
+    formatTime:'h:i a',
+    validateOnBlur: false,
+allowTimes:[
+  '09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30']
+
+});
+}
+$('.xdsoft_timepicker.active').css({'display':'none'})
+if($('.lds-ring').length == 0){
+$('.xdsoft_timepicker.active').after('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>')  
+}
+$('.lds-ring').css({'display':'block'})
+
+}
+        }); 
+       $('#timepicker').click(function(){
+
+let date =  $('#inputDate').val();
+        var d = new Date();
+
+$('.noslots').text('')
+
+
+       if(date == ''){
+        $('#timepicker').val('')
+        $('.errordatetime').html('<p style="color:red"> please select date </p>')
+        $('#timepicker').css('border','1px solid red')
+       }else{
+ 
+var settings = {
+  "url": "https://admin.drvasuortho.com/getbookedslots",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "application/json",
+     },
+  "data": JSON.stringify({
+    "date": date
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+let bookedslots = response.bookedslots
+
+let slots = []
+let completeslots = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30']
+
+for(let i=0; i<bookedslots.length; i++ ){
+
+let changeformat = moment(bookedslots[i], ["h:mm A"]).format("HH:mm");
+completeslots = completeslots.filter(e => e !== changeformat);
+
+
+}
+var filterDate = moment().format('DD/MM/YYYY');
+if(date == filterDate ){
+let time = moment().format('H:mm');
+let filteredslots = []
+console.log(completeslots)
+for(let i=0; i<completeslots.length; i++){
+var beginningTime = moment(completeslots[i], 'H:mm');
+var endTime = moment(time, 'H:mm');
+console.log(beginningTime.isBefore(endTime));
+let checktime = beginningTime.isBefore(endTime)
+
+if(!checktime){
+
+filteredslots.push(completeslots[i])
+}
+ 
+
+}
+if(filteredslots.length == 0){
+filteredslots.push('')
+}
+
+
+completeslots = filteredslots 
+
+
+}
+          $('.errordatetime').html('')
+        $('#timepicker').css('border','1px solid #653F8C')
+$('#timepicker').datetimepicker({ 
+	datepicker:false,
+	step:30,
+    format:'h:i a',
+    formatTime:'h:i a',
+    validateOnBlur: false,
+    allowTimes:completeslots
+});
+$('.xdsoft_timepicker.active').css({'display':'block'})
+$('.lds-ring').css({'display':'none'})
+if(completeslots[0] == ''){
+$('.xdsoft_timepicker.active').css({'display':'none'})
+$('.lds-ring').after('<p class="noslots">No slots available</p>')
+}else{
+$('.noslots').text('')
+}
+
+
+});
+
+
+
+
+
+       }
+
+
+
+})
+        
+        // $('#timepicker').datetimepicker({value:'2015/04/15 05:06'});
+
+ let doctorval = $('.preferredDoctor').attr('data-savedoption');
+        $('.preferredDoctor').val(doctorval )
+ let departmentval = $('.appointmentdepartment').attr('data-savedoption');
+        $('.appointmentdepartment').val(departmentval)
+
+let appointmentstatus = $('.appointmentstatus').attr('data-savedoption');
+        $('.appointmentstatus').val(appointmentstatus)
+
+
+$('#appointmentdepartment').change(function(){
+debugger;
+
+let departmentval = $(this).val() 
+
+$('.preferredDoctor').find('.doc_option').each(function(e,i){
+
+if($(i).attr('data-department') == departmentval){
+$(i).css('display','block')
+
+}else{
+$(i).css('display','none')
+}
+
+})
+
+
+})
+
+    </script>
+</body>
+
+</html>
