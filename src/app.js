@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 app.use("/", htmlRoutes);
 mongodb: mongoose
-  .connect("mongodb://127.0.0.1:27017/vasudev", {
+  .connect("mongodb://localhost:27017/vasudev", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -56,7 +56,7 @@ mongodb: mongoose
     console.log("No Connection");
   });
 
-app.set("port", process.env.PORT || 6000);
+app.set("port", process.env.PORT || 3066);
 
 app.listen(app.get("port"), () => {
   console.log("Application running in port: " + app.get("port"));

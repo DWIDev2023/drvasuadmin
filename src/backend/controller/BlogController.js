@@ -29,7 +29,6 @@ const createblog = async (req, res) => {
       console.log(blog);
     });
     let msg = `new video added please check the video at ${videosrc}`;
-    //mailinglistcontroller.sendmailstoall(msg);
 
     req.flash("success", "video added");
     res.redirect("/doctorprofile/" + doctorid);
@@ -45,30 +44,28 @@ const createblog = async (req, res) => {
       );
 
       req.flash("success", "blog updated");
-res.redirect("/alldoctors");
+      res.redirect("/doctorprofile");
     } else {
       const createblog = await blogmodel.create(req.body);
-      let msg = `new Blog added please check the blog at https://kaizenoncology.com/viewblog?blogid=${createblog._id}&page=1`;
-      //mailinglistcontroller.sendmailstoall(msg);
+      let msg = `new Blog added please check the blog at https://admin.drvasuortho.com/viewblog/${createblog.slug}`;
 
       req.flash("success", "blog created");
-res.redirect("/alldoctors");
+      res.redirect("/doctorprofile");
     }
   }
 };
 
 const viewblog = async (req, res) => {
-  let blogid = req.params.blogid || req.query.blogid;
+  let slug = req.params.slug || req.query.slug;
   let page = req.query.page;
 
-  let bloginfo = 0;
   const formtype = req.query.formtype || 0;
 
-  bloginfo = await blogmodel.find({ _id: blogid });
-  let blogdesc = JSON.parse(bloginfo[0].description);
+  let bloginfo = await blogmodel.find({ slug: slug });
+  let blogdesc = bloginfo[0].description;
 
   let doctorinfo = await doctorsmodel.find({ _id: bloginfo[0].doctorid });
-  let comments = await commentmodel.find({ blogid });
+  let comments = await commentmodel.find({ blogid: bloginfo[0].id });
   let blogs = await blogmodel.find({ type: 0 }).sort({ createdAt: -1 });
 
   if (formtype) {

@@ -199,40 +199,13 @@ const sendemail = async (recipient, subject, message) => {
     };
 
     let info = await transporter.sendMail(mailOptions);
-console.log(info)
+    console.log(info)
     return { message: 'Email sent successfully', info: info,success:true };
   } catch (error) {
-console.log(error.message)
+    console.log(error.message)
     throw new Error(`Error sending email: ${error.message}`);
   }
 };
-
-//const sendemail = (email, subject, message) => {
-  // var transporter = nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //      type: 'OAuth2',
-  //         user: "mailto:support@kaizenoncology.com",
-  //         pass: "KaiZen@426",
-  //         clientId: "264679094058-fkrn9vkca359gqve6u6kj7vjierc1uqa.apps.googleusercontent.com",
-  //         clientSecret: "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",
-  //         refreshToken: "1//042JZblYLWBdACgYIARAAGAQSNwF-L9Iru1nG1ul-_tud-ScZeNaUT2E9Dh2tK0Tmt_bNlKVQFy_ayAj1wckGYr1fVRZywCEIJ-w"
-  //   }
-  // });
-  // var mailOptions = {
-  //   from: 'support@kaizenoncology.com',
-  //   to: `mailto:${email}`,
-  //   subject:`${subject}`,
-  //   text: `${message}`,
-  // };
-  // transporter.sendMail(mailOptions, function(error, info){
-  //   if (error) {
-  //     console.log(error);
-  //   } else {
-  //     console.log('Email sent: ' + info.response);
-  //   }
-  // });
-//};
 
 const checkavailabletimeslots = async (req, res) => {
   let date = req.body.date;

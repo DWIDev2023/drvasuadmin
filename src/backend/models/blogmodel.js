@@ -26,6 +26,10 @@ const blogSchema = new mongoose.Schema({
   videosrc: {
     type: String,
     required: true
+  },
+  slug: {
+    type: String,
+    required: true
   }
 }, { timestamps: true });
 

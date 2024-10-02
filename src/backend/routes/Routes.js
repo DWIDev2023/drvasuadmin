@@ -74,7 +74,7 @@ router
   .post(multerController.uploadfile, blogController.createblog);
 
 router
-  .route("/viewblog/:blogid")
+  .route("/viewblog/:slug")
   .get(authenticationController.checksession, blogController.viewblog);
 
 router.route("/editblog/:blogid").post(blogController.createblog);

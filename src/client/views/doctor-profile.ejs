@@ -282,10 +282,6 @@
                                           </div>
                                         </div>
                                       </div>
-                                    <!-- <label for="pic" class="video_btn">
-                                        <span>Upload Video</span>
-                                        <input type="file" id="pic">
-                                    </label> -->
                                 </div>
                             </div>
                             <div class="row" style="padding:20px 22px 20px 22px">
@@ -299,7 +295,7 @@
                                         <div class="card-body">
                                             <h5><%= blogs[i].displayname %></h5>
                                             <div class="d-flex justify-content-between">
-                                                <a class="button" href="/viewblog/<%= blogs[i]._id %>">Know more</a>
+                                                <a class="button" href="/viewblog/<%= blogs[i].slug %>">Know more</a>
                                                 <div class="pt-3 blog-icons">
                                                     <span><a href="/editblog/<%= blogs[i]._id %>?formtype=edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>&nbsp;&nbsp;
                                                     <span><a href="/deleteblog?id=<%= blogs[i]._id %>"><i class="fa fa-trash" aria-hidden="true"></i></a></span>

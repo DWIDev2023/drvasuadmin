@@ -109,7 +109,7 @@
                                   <span class="blog-name">Image Url</span>
                               </div>
                                 <div class="col-md-12" style="padding: 0px 0px 10px 0px;">
-                                    <input type="text" name="image-url" class="form-control" id="blogimageurl" placeholder="image url here" value="<%=bloginfo[0].displayimg%>">
+                                    <input type="text" name="image-url" class="form-control" id="blogimageurl" placeholder="image url here" value="<%= bloginfo[0].displayimg %>">
                                 </div>
                                
                                
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <% if(formtype == 'edit'){ %> 
-                              <div id="editor-container" data-formtype="edit" data-blogid="<%= bloginfo[0]._id %>" data-doctorid="<%= bloginfo[0].doctorid  %>"><%= blogdesc %></div>
+                              <div id="editor-container" data-formtype="edit" data-blogid="<%= bloginfo[0]._id %>" data-doctorid="<%= bloginfo[0].doctorid  %>"><%= bloginfo[0].description %></div>
                               <%} else {%>
                                 <div id="editor-container"></div>
                           
